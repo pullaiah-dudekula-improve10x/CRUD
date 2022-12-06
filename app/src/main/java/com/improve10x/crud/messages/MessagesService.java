@@ -1,4 +1,6 @@
-package com.improve10x.crud;
+package com.improve10x.crud.messages;
+
+import com.improve10x.crud.messages.Message;
 
 import java.util.List;
 
@@ -21,5 +23,5 @@ public interface MessagesService {
     Call<Void> deleteMessages (@Path("id") String id);
 
     @PUT("pullaiahMessageHistory/{id}")
-    Call<Void> editMessages (@Path("id") String id, Message message);
+    Call<Void> editMessages (@Path("id") String id,@Body Message message);
 }

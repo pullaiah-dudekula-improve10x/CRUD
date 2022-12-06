@@ -1,4 +1,4 @@
-package com.improve10x.crud;
+package com.improve10x.crud.messages;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.improve10x.crud.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +56,12 @@ public class MessagesActivity extends AppCompatActivity {
             return super.onOptionsItemSelected(item);
         }
     }
+    public void editTask(Message message) {
+        Intent intent = new Intent(this, AddEditMessagesActivity.class);
+        intent.putExtra("Message", message);
+        startActivity(intent);
+
+    }
 
     public void setUpMessagesRv() {
         messagesRv = findViewById(R.id.messages_rv);
@@ -68,6 +76,7 @@ public class MessagesActivity extends AppCompatActivity {
 
             @Override
             public void onEdit(Message message) {
+                editTask(message);
 
             }
         });
