@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +60,17 @@ public class TemplatesActivity extends AppCompatActivity {
         templatesRv.setLayoutManager(new LinearLayoutManager(this));
         templatesAdapter = new TemplatesAdapter();
         templatesAdapter.setData(templates);
+        templatesAdapter.setOnItemActionClickListener(new OnItemActionClickListener() {
+            @Override
+            public void onDelete(String id) {
+                deleteMessages(id);
+            }
+
+            @Override
+            public void onEdit(Template template) {
+
+            }
+        });
         templatesRv.setAdapter(templatesAdapter);
     }
     public void fetchTemplates() {
@@ -74,6 +86,26 @@ public class TemplatesActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Template>> call, Throwable t) {
+
+            }
+        });
+
+    }
+    public void deleteMessages(String id) {
+        TemplatesApi templatesApi = new TemplatesApi();
+        TemplatesService templatesService = templatesApi.createTemplatesService();
+        Call<Void>call = templatesService.deleteTemplates(id);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Toast.makeText(TemplatesActivity.this, "Succesfully delete the template", Toast.LENGTH_SHORT).show();
+                fetchTemplates();
+
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(TemplatesActivity.this, "Failed delete the template", Toast.LENGTH_SHORT).show();
 
             }
         });

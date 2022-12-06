@@ -13,11 +13,14 @@ import java.util.List;
 public class TemplatesAdapter extends RecyclerView.Adapter<TemplatesViewHolder> {
 
     public List<Template> templates;
+    public OnItemActionClickListener onItemActionClickListener;
 
     public void setData(List<Template>templateList) {
         templates = templateList;
         notifyDataSetChanged();
-
+    }
+    public void setOnItemActionClickListener(OnItemActionClickListener actionClickListener) {
+        onItemActionClickListener = actionClickListener;
     }
     @NonNull
     @Override
@@ -31,6 +34,9 @@ public class TemplatesAdapter extends RecyclerView.Adapter<TemplatesViewHolder> 
     public void onBindViewHolder(@NonNull TemplatesViewHolder holder, int position) {
         Template template = templates.get(position);
         holder.messagesTextTxt.setText(template.messageText);
+        holder.deleteBtn.setOnClickListener(view -> {
+            onItemActionClickListener.onDelete(template.id);
+        });
 
     }
 
