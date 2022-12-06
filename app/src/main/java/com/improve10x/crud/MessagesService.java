@@ -11,15 +11,15 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface MessagesService {
-    @GET("sureshMessageHistory")
+    @GET("pullaiahMessageHistory")
     Call<List<Message>> fetchMessages();
 
-    @POST("messageHistory")
-    Call<List<Message>> createMessage(@Body Message message);
+    @POST("pullaiahMessageHistory")
+    Call<Message> createMessage (@Body Message message);
 
-    @DELETE("messageHistory/{id}")
+    @DELETE("pullaiahMessageHistory/{id}")
     Call<Void> deleteMessages (@Path("id") String id);
 
-    @PUT("messageHistory/{id}")
+    @PUT("pullaiahMessageHistory/{id}")
     Call<Void> editMessages (@Path("id") String id, Message message);
 }

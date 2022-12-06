@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,11 @@ public class MessagesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_messages);
         getSupportActionBar().setTitle("Messages");
         setUpMessagesRv();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         fetchMessages();
     }
 
@@ -54,6 +60,17 @@ public class MessagesActivity extends AppCompatActivity {
         messagesRv.setLayoutManager(new LinearLayoutManager(this));
         messagesAdapter = new MessagesAdapter();
         messagesAdapter.setData(messageList);
+        messagesAdapter.setOnItemActionClickListener(new onItemActionClickListener() {
+            @Override
+            public void onDelete(String id) {
+                deleteMessages(id);
+            }
+
+            @Override
+            public void onEdit(Message message) {
+
+            }
+        });
         messagesRv.setAdapter(messagesAdapter);
     }
     public void fetchMessages() {
@@ -74,5 +91,25 @@ public class MessagesActivity extends AppCompatActivity {
 
             }
         });
+    }
+    public void deleteMessages(String id) {
+
+        MessagesApi messagesApi = new MessagesApi();
+        MessagesService messagesService = messagesApi.createMessageService();
+        Call<Void> call = messagesService.deleteMessages(id);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Toast.makeText(MessagesActivity.this, "Successfully delete the data", Toast.LENGTH_SHORT).show();
+                fetchMessages();
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(MessagesActivity.this, "Failed to delete the data", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
     }
 }
