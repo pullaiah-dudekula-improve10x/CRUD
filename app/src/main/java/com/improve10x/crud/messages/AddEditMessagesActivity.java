@@ -39,7 +39,7 @@ public class AddEditMessagesActivity extends AppCompatActivity {
     public void initValues() {
         nameTxt = findViewById(R.id.name_txt);
         phoneNumberTxt = findViewById(R.id.phonenumber_txt);
-        messageTextTxt = findViewById(R.id.message_text_txt);
+        messageTextTxt = findViewById(R.id.message_text_txt1);
     }
     public void showData() {
         nameTxt.setText(messageList.name);
