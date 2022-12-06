@@ -55,6 +55,12 @@ public class TemplatesActivity extends AppCompatActivity {
         }
     }
 
+    public void ediTask(Template template) {
+        Intent intent = new Intent(this, AddEditTemplatesActivity.class);
+        intent.putExtra("Template", template);
+        startActivity(intent);
+    }
+
     public void setUpTemplatesRv() {
         templatesRv = findViewById(R.id.templates_rv);
         templatesRv.setLayoutManager(new LinearLayoutManager(this));
@@ -68,11 +74,13 @@ public class TemplatesActivity extends AppCompatActivity {
 
             @Override
             public void onEdit(Template template) {
+                ediTask(template);
 
             }
         });
         templatesRv.setAdapter(templatesAdapter);
     }
+
     public void fetchTemplates() {
         TemplatesApi templatesApi = new TemplatesApi();
         TemplatesService templatesService = templatesApi.createTemplatesService();
@@ -91,6 +99,7 @@ public class TemplatesActivity extends AppCompatActivity {
         });
 
     }
+
     public void deleteMessages(String id) {
         TemplatesApi templatesApi = new TemplatesApi();
         TemplatesService templatesService = templatesApi.createTemplatesService();

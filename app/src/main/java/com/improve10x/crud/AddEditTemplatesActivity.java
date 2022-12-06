@@ -22,10 +22,21 @@ public class AddEditTemplatesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_templates);
         initView();
+        if(getIntent().hasExtra("Template")) {
+            getSupportActionBar().setTitle("EditTemplates");
+           template = (Template) getIntent().getSerializableExtra("Template");
+           showData();
+
+        } else {
+            getSupportActionBar().setTitle("AddMessages");
+        }
     }
 
     public void initView() {
         messageTextTxt = findViewById(R.id.message_text_txt);
+    }
+    public void showData() {
+        messageTextTxt.setText(template.messageText);
     }
 
     @Override
@@ -41,7 +52,7 @@ public class AddEditTemplatesActivity extends AppCompatActivity {
             if(template == null) {
                 addMessages(message);
             } else {
-
+                editTemplates(template.id, message);
             }
             return true;
         } else {
@@ -66,6 +77,26 @@ public class AddEditTemplatesActivity extends AppCompatActivity {
             public void onFailure(Call<Template> call, Throwable t) {
                 Toast.makeText(AddEditTemplatesActivity.this, "Failed to load the data", Toast.LENGTH_SHORT).show();
 
+            }
+        });
+    }
+    public void editTemplates(String id, String message) {
+        template = new Template();
+        template.messageText = message;
+
+        TemplatesApi templatesApi = new TemplatesApi();
+        TemplatesService templatesService = templatesApi.createTemplatesService();
+        Call<Void> call = templatesService.editTemplates(id, template);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Toast.makeText(AddEditTemplatesActivity.this, "Successfully edit the data", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(AddEditTemplatesActivity.this, "Failed to edit the data", Toast.LENGTH_SHORT).show();
             }
         });
     }
