@@ -1,10 +1,13 @@
-package com.improve10x.crud;
+package com.improve10x.crud.dashboard;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.improve10x.crud.R;
+import com.improve10x.crud.dashboard.DashboardActivity;
 
 public class SplashScreen extends AppCompatActivity {
 
