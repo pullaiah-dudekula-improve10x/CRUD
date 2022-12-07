@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.improve10x.crud.R;
 
 public class DashboardViewHolder extends RecyclerView.ViewHolder {
-    public ImageView imageImg;
-    public TextView titleTxt;
-    public LinearLayout dashboardLayout;
+     ImageView imageImg;
+     TextView titleTxt;
+     LinearLayout dashboardLayout;
     public DashboardViewHolder(@NonNull View itemView) {
         super(itemView);
         imageImg = itemView.findViewById(R.id.image_img);

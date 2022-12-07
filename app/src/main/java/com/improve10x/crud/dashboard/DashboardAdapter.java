@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.improve10x.crud.SeriesActivity;
+import com.improve10x.crud.series.SeriesActivity;
 import com.improve10x.crud.templates.TemplatesActivity;
 import com.improve10x.crud.messages.MessagesActivity;
 import com.improve10x.crud.R;
@@ -17,7 +17,9 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 public class DashboardAdapter extends RecyclerView.Adapter<DashboardViewHolder> {
-    public ArrayList<Dashboard> dashboards;
+
+    private ArrayList<Dashboard> dashboards;
+
     public void setData(ArrayList<Dashboard> dashboardList) {
         dashboards = dashboardList;
         notifyDataSetChanged();

@@ -10,8 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.improve10x.crud.R;
 
 public class TemplatesViewHolder extends RecyclerView.ViewHolder {
-    public TextView messagesTextTxt;
-    public ImageButton deleteBtn;
+     TextView messagesTextTxt;
+     ImageButton deleteBtn;
+
     public TemplatesViewHolder(@NonNull View itemView) {
         super(itemView);
         messagesTextTxt = itemView.findViewById(R.id.message_text_txt1);

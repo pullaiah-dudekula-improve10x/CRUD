@@ -13,16 +13,18 @@ import java.util.List;
 
 public class TemplatesAdapter extends RecyclerView.Adapter<TemplatesViewHolder> {
 
-    public List<Template> templates;
-    public OnItemActionClickListener onItemActionClickListener;
+    private List<Template> templates;
+    private OnItemActionClickListener onItemActionClickListener;
 
     public void setData(List<Template>templateList) {
         templates = templateList;
         notifyDataSetChanged();
     }
+
     public void setOnItemActionClickListener(OnItemActionClickListener actionClickListener) {
         onItemActionClickListener = actionClickListener;
     }
+
     @NonNull
     @Override
     public TemplatesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

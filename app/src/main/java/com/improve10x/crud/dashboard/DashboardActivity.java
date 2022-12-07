@@ -11,9 +11,9 @@ import com.improve10x.crud.R;
 import java.util.ArrayList;
 
 public class DashboardActivity extends AppCompatActivity {
-    public ArrayList<Dashboard> dashboards;
-    public RecyclerView dashboardRv;
-    public DashboardAdapter dashboardAdapter;
+    private ArrayList<Dashboard> dashboards;
+    private RecyclerView dashboardRv;
+    private DashboardAdapter dashboardAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,7 @@ public class DashboardActivity extends AppCompatActivity {
         dashboards.add(templates);
 
         Dashboard series = new Dashboard();
-        series.imageUrl = "http://images5.fanpop.com/image/photos/29000000/harry-potter-harry-potter-29097111-1024-768.jpg";
+        series.imageUrl = "https://i.ytimg.com/vi/faeP56TY1z4/maxresdefault.jpg";
         series.title = "Series";
         dashboards.add(series);
 

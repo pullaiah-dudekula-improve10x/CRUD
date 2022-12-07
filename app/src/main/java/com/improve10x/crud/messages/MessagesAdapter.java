@@ -12,7 +12,7 @@ import com.improve10x.crud.R;
 import java.util.List;
 
 public class MessagesAdapter extends RecyclerView.Adapter<MessagesViewHolder> {
-    public List<Message> messageList;
+    private List<Message> messageList;
     public com.improve10x.crud.messages.onItemActionClickListener onItemActionClickListener;
 
     public void setData(List<Message> messages) {

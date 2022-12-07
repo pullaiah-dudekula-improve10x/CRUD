@@ -17,10 +17,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AddEditMessagesActivity extends AppCompatActivity {
-    public EditText nameTxt;
-    public EditText phoneNumberTxt;
-    public EditText messageTextTxt;
-    public Message messageList;
+    private  EditText nameTxt;
+    private  EditText phoneNumberTxt;
+    private  EditText messageTextTxt;
+    private  Message messageList;
 
 
     @Override
@@ -37,12 +37,14 @@ public class AddEditMessagesActivity extends AppCompatActivity {
             getSupportActionBar().setTitle("AddMessages");
         }
     }
-    public void initValues() {
+
+    private void initValues() {
         nameTxt = findViewById(R.id.name_txt);
         phoneNumberTxt = findViewById(R.id.phonenumber_txt);
         messageTextTxt = findViewById(R.id.message_text_txt1);
     }
-    public void showData() {
+
+    private void showData() {
         nameTxt.setText(messageList.name);
         phoneNumberTxt.setText(messageList.phoneNumber);
         messageTextTxt.setText(messageList.messageText);
@@ -73,7 +75,8 @@ public class AddEditMessagesActivity extends AppCompatActivity {
             return super.onOptionsItemSelected(item);
         }
     }
-    public void addMessages(String name, String phoneNumber, String messageText) {
+
+    private void addMessages(String name, String phoneNumber, String messageText) {
         messageList = new Message();
         messageList.name = name;
         messageList.phoneNumber = phoneNumber;
@@ -98,7 +101,8 @@ public class AddEditMessagesActivity extends AppCompatActivity {
         });
 
     }
-    public void updateMessages(String id, String name, String phoneNumber, String message) {
+
+    private void updateMessages(String id, String name, String phoneNumber, String message) {
         messageList = new Message();
         messageList.name = name;
         messageList.phoneNumber = phoneNumber;

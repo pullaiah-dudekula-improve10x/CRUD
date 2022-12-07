@@ -16,10 +16,10 @@
         android:theme="@style/Theme.CRUD"
         tools:targetApi="31">
         <activity
-            android:name=".AddEditSeriesActivity"
+            android:name=".series.AddEditSeriesActivity"
             android:exported="false" />
         <activity
-            android:name=".SeriesActivity"
+            android:name=".series.SeriesActivity"
             android:exported="false" />
         <activity
             android:name=".templates.AddEditTemplatesActivity"

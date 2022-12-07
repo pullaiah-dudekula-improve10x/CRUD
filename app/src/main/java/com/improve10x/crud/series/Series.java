@@ -1,4 +1,4 @@
-package com.improve10x.crud;
+package com.improve10x.crud.series;
 
 import com.google.gson.annotations.SerializedName;
 

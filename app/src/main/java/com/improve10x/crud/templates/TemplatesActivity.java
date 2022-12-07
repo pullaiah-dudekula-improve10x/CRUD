@@ -23,9 +23,9 @@ import retrofit2.Response;
 
 public class TemplatesActivity extends AppCompatActivity {
 
-    public ArrayList<Template> templates = new ArrayList<>();
-    public RecyclerView templatesRv;
-    public TemplatesAdapter templatesAdapter;
+    private ArrayList<Template> templates = new ArrayList<>();
+    private RecyclerView templatesRv;
+    private TemplatesAdapter templatesAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,13 +58,13 @@ public class TemplatesActivity extends AppCompatActivity {
         }
     }
 
-    public void ediTask(Template template) {
+    private void ediTask(Template template) {
         Intent intent = new Intent(this, AddEditTemplatesActivity.class);
         intent.putExtra(Constants.KEY_TEMPLATE, template);
         startActivity(intent);
     }
 
-    public void setUpTemplatesRv() {
+    private void setUpTemplatesRv() {
         templatesRv = findViewById(R.id.templates_rv);
         templatesRv.setLayoutManager(new LinearLayoutManager(this));
         templatesAdapter = new TemplatesAdapter();
@@ -84,7 +84,7 @@ public class TemplatesActivity extends AppCompatActivity {
         templatesRv.setAdapter(templatesAdapter);
     }
 
-    public void fetchTemplates() {
+    private void fetchTemplates() {
         TemplatesApi templatesApi = new TemplatesApi();
         TemplatesService templatesService = templatesApi.createTemplatesService();
         Call<List<Template>> call = templatesService.fetchTemplates();
@@ -103,7 +103,7 @@ public class TemplatesActivity extends AppCompatActivity {
 
     }
 
-    public void deleteMessages(String id) {
+    private void deleteMessages(String id) {
         TemplatesApi templatesApi = new TemplatesApi();
         TemplatesService templatesService = templatesApi.createTemplatesService();
         Call<Void>call = templatesService.deleteTemplates(id);

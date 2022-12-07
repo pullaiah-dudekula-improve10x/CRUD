@@ -1,4 +1,4 @@
-package com.improve10x.crud;
+package com.improve10x.crud.series;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,15 +9,17 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.improve10x.crud.R;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AddEditSeriesActivity extends AppCompatActivity {
-    public EditText seriesIdTxt;
-    public EditText seriesNameTxt;
-    public EditText imageUrlTxt;
-    public Series series;
+    private EditText seriesIdTxt;
+    private EditText seriesNameTxt;
+    private EditText imageUrlTxt;
+    private Series series;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +28,7 @@ public class AddEditSeriesActivity extends AppCompatActivity {
         initView();
     }
 
-    public void initView() {
+    private void initView() {
         seriesIdTxt = findViewById(R.id.seriesid_txt);
         seriesNameTxt = findViewById(R.id.seriesname_txt);
         imageUrlTxt = findViewById(R.id.imageurl_txt);
@@ -57,7 +59,8 @@ public class AddEditSeriesActivity extends AppCompatActivity {
             return  super.onOptionsItemSelected(item);
         }
     }
-    public void addSeries (String seriesId, String seriesName, String imageUrl) {
+
+    private void addSeries (String seriesId, String seriesName, String imageUrl) {
         series = new Series();
         series.seriesId = seriesId;
         series.title = seriesName;

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="4dp"
-    tools:context=".AddEditSeriesActivity">
+    tools:context=".series.AddEditSeriesActivity">
 
     <TextView
         android:id="@+id/textView7"
@@ -15,7 +15,7 @@
         android:paddingTop="8dp"
         android:text="Series id"
         android:textColor="#151111"
-        android:textSize="20sp" />
+        android:textSize="24sp" />
 
     <EditText
         android:id="@+id/seriesid_txt"
@@ -23,33 +23,32 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:paddingTop="4dp" />
+        android:paddingTop="8dp" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="4dp"
+        android:paddingTop="8dp"
         android:text="Series Name"
         android:textColor="#433A3A"
-        android:textSize="20sp" />
+        android:textSize="24sp" />
 
     <EditText
         android:id="@+id/seriesname_txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:inputType="textPersonName"
-        android:paddingTop="4dp" />
+        android:paddingTop="8dp" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="4dp"
+        android:paddingTop="8dp"
         android:text="Image Url"
         android:textColor="#272121"
-        android:textSize="20sp" />
+        android:textSize="24sp" />
 
     <EditText
         android:id="@+id/imageurl_txt"
@@ -57,5 +56,5 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:paddingTop="4dp" />
+        android:paddingTop="8dp" />
 </LinearLayout>

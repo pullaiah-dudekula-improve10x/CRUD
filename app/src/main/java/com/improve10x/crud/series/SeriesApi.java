@@ -1,4 +1,6 @@
-package com.improve10x.crud;
+package com.improve10x.crud.series;
+
+import com.improve10x.crud.Constants;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

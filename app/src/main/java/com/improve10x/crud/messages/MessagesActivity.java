@@ -23,8 +23,8 @@ import retrofit2.Response;
 
 public class MessagesActivity extends AppCompatActivity {
     public ArrayList<Message> messageList = new ArrayList<>();
-    public MessagesAdapter messagesAdapter;
-    public RecyclerView messagesRv;
+    private MessagesAdapter messagesAdapter;
+    private RecyclerView messagesRv;
 
 
     @Override
@@ -57,14 +57,15 @@ public class MessagesActivity extends AppCompatActivity {
             return super.onOptionsItemSelected(item);
         }
     }
-    public void editTask(Message message) {
+
+    private void editTask(Message message) {
         Intent intent = new Intent(this, AddEditMessagesActivity.class);
         intent.putExtra(Constants.KEY_MESSAGE, message);
         startActivity(intent);
 
     }
 
-    public void setUpMessagesRv() {
+    private void setUpMessagesRv() {
         messagesRv = findViewById(R.id.messages_rv);
         messagesRv.setLayoutManager(new LinearLayoutManager(this));
         messagesAdapter = new MessagesAdapter();
@@ -83,7 +84,8 @@ public class MessagesActivity extends AppCompatActivity {
         });
         messagesRv.setAdapter(messagesAdapter);
     }
-    public void fetchMessages() {
+
+    private void fetchMessages() {
         MessagesApi messagesApi = new MessagesApi();
         MessagesService messagesService = messagesApi.createMessageService();
         Call<List<Message>>call = messagesService.fetchMessages();
@@ -102,7 +104,8 @@ public class MessagesActivity extends AppCompatActivity {
             }
         });
     }
-    public void deleteMessages(String id) {
+
+    private void deleteMessages(String id) {
 
         MessagesApi messagesApi = new MessagesApi();
         MessagesService messagesService = messagesApi.createMessageService();
