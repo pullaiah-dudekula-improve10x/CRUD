@@ -6,6 +6,8 @@ public class Constants {
 
     public static final String KEY_TEMPLATE = "template";
 
+    public static final String KEY_SERIES = "series";
+
     public static final String END_POINT = "pullaiahMessageHistory";
 
     public static final String END_POINT_TEMPLATE = "marsTemplates";

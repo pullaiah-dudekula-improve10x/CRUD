@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
 
 import java.util.ArrayList;
@@ -56,6 +57,12 @@ public class SeriesActivity extends AppCompatActivity {
         fetchSeries();
     }
 
+    private void editSeries(Series series) {
+        Intent intent = new Intent(this, AddEditSeriesActivity.class);
+        intent.putExtra(Constants.KEY_SERIES, series);
+        startActivity(intent);
+    }
+
     private void setUpSeriesRv() {
         seriesRv = findViewById(R.id.series_rv);
         seriesRv.setLayoutManager(new LinearLayoutManager(this));
@@ -70,6 +77,7 @@ public class SeriesActivity extends AppCompatActivity {
 
             @Override
             public void onEdit(Series series) {
+                editSeries(series);
 
             }
         });
@@ -97,7 +105,7 @@ public class SeriesActivity extends AppCompatActivity {
     private void deleteSeries(String id) {
         SeriesApi seriesApi = new SeriesApi();
         SeriesService seriesService = seriesApi.createSeriesService();
-        Call<Void> call = seriesService.deleteMessages(id);
+        Call<Void> call = seriesService.deleteSeries(id);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {

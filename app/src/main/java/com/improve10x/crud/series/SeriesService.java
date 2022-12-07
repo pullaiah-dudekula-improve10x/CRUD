@@ -21,8 +21,8 @@ public interface SeriesService {
     Call<Series> createSeries (@Body Series series);
 
     @DELETE(Constants.END_POINT_SERIES + "/{id}")
-    Call<Void> deleteMessages (@Path("id") String id);
+    Call<Void> deleteSeries(@Path("id") String id);
 
-    @DELETE(Constants.END_POINT_SERIES + "/{id}")
-    Call<Void> editMessages (@Path("id") String id, @Body Series series);
+    @PUT(Constants.END_POINT_SERIES + "/{id}")
+    Call<Void> editSeries(@Path("id") String id, @Body Series series);
 }

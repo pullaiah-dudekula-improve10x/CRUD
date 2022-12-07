@@ -42,6 +42,9 @@ public class SeriesAdapter extends RecyclerView.Adapter<SeriesViewHolder> {
         holder.seriesDeleteBtn.setOnClickListener(view -> {
             onItemActionClickListener.onDelete(series.id);
         });
+        holder.itemView.setOnClickListener(view -> {
+            onItemActionClickListener.onEdit(series);
+        });
     }
 
     @Override
