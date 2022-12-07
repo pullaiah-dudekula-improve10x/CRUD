@@ -1,4 +1,6 @@
-package com.improve10x.crud;
+package com.improve10x.crud.templates;
+
+import com.improve10x.crud.templates.Template;
 
 import java.util.List;
 

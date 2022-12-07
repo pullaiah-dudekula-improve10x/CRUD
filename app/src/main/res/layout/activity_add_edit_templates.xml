@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="18dp"
-    tools:context=".AddEditTemplatesActivity">
+    tools:context=".templates.AddEditTemplatesActivity">
 
     <TextView
         android:id="@+id/textView3"

@@ -2,10 +2,9 @@ package com.improve10x.crud;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
-
-public class Template implements Serializable {
+public class Series {
     @SerializedName("_id")
     public String id;
-    public String messageText;
+    public String imageUrl;
+    public String title;
 }

@@ -1,4 +1,4 @@
-package com.improve10x.crud;
+package com.improve10x.crud.templates;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.improve10x.crud.R;
 
 import retrofit2.Call;
 import retrofit2.Callback;
