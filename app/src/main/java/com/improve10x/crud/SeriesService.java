@@ -8,9 +8,9 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface SeriesService {
-    @GET("series")
+    @GET(Constants.END_POINT_SERIES)
     Call<List<Series>> fetchSeries();
 
-    @POST("series")
+    @POST(Constants.END_POINT_SERIES)
     Call<Series> createSeries (@Body Series series);
 }

@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
 
 import java.util.ArrayList;
@@ -58,7 +59,7 @@ public class MessagesActivity extends AppCompatActivity {
     }
     public void editTask(Message message) {
         Intent intent = new Intent(this, AddEditMessagesActivity.class);
-        intent.putExtra("Message", message);
+        intent.putExtra(Constants.KEY_MESSAGE, message);
         startActivity(intent);
 
     }

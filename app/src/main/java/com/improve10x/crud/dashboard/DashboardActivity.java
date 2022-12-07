@@ -35,22 +35,22 @@ public class DashboardActivity extends AppCompatActivity {
     private void setUpData() {
         dashboards = new ArrayList<>();
         Dashboard messages = new Dashboard();
-        messages.imageUrl = "https://media.istockphoto.com/id/1161794768/vector/mail-notification-on-white-bubble.jpg?s=612x612&w=0&k=20&c=jajRBgyArIz9jQ_dbekxvkMGJY1_8yoZgzhNnKAQ9Wc=";
+        messages.imageUrl = "https://www.mediashower.com/img/2233/first%20text.jpg";
         messages.title = "Messages";
         dashboards.add(messages);
 
         Dashboard templates = new Dashboard();
-        templates.imageUrl = "https://play-lh.googleusercontent.com/9AZOTXU_CpreTFAXUPAmJNkm8VGCb1C90fjJ9pHGcVmpGMDSTq3cUbaQJdBT9Tdp9A";
+        templates.imageUrl = "texttasy.com/img/message.svg";
         templates.title = "Templates";
         dashboards.add(templates);
 
         Dashboard series = new Dashboard();
-        series.imageUrl = "https://play-lh.googleusercontent.com/vEYNbuYGPL1RtALdzKXuB-u9heze526psSAdI-I2hgkV2Zoo2FADYxb5CLVdD734ZyU";
+        series.imageUrl = "http://images5.fanpop.com/image/photos/29000000/harry-potter-harry-potter-29097111-1024-768.jpg";
         series.title = "Series";
         dashboards.add(series);
 
         Dashboard movies = new Dashboard();
-        movies.imageUrl = "https://thumbs.dreamstime.com/b/android-messages-app-logo-meet-google-s-official-texting-chat-web-kyiv-ukraine-june-186059516.jpg";
+        movies.imageUrl = "https://tse4.mm.bing.net/th?id=OIP.Fswmb62BFVQukj5U-HFXrAHaEK&pid=Api&P=0";
         movies.title = "Movies";
         dashboards.add(movies);
 

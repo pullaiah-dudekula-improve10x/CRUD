@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
 
 import java.util.ArrayList;
@@ -59,7 +60,7 @@ public class TemplatesActivity extends AppCompatActivity {
 
     public void ediTask(Template template) {
         Intent intent = new Intent(this, AddEditTemplatesActivity.class);
-        intent.putExtra("Template", template);
+        intent.putExtra(Constants.KEY_TEMPLATE, template);
         startActivity(intent);
     }
 

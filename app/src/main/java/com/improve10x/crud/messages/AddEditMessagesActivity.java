@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
 
 import retrofit2.Call;
@@ -28,9 +29,9 @@ public class AddEditMessagesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_edit_messages);
         getSupportActionBar().setTitle("Messages");
         initValues();
-        if (getIntent().hasExtra("Message")) {
+        if (getIntent().hasExtra(Constants.KEY_MESSAGE)) {
             getSupportActionBar().setTitle("EditMessages");
-           messageList = (Message) getIntent().getSerializableExtra("Message");
+           messageList = (Message) getIntent().getSerializableExtra(Constants.KEY_MESSAGE);
            showData();
         } else {
             getSupportActionBar().setTitle("AddMessages");
