@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
+import com.improve10x.crud.network.CrudApi;
+import com.improve10x.crud.network.CrudService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +29,7 @@ public class TemplatesActivity extends AppCompatActivity {
     private ArrayList<Template> templates = new ArrayList<>();
     private RecyclerView templatesRv;
     private TemplatesAdapter templatesAdapter;
+    private CrudService crudService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,16 @@ public class TemplatesActivity extends AppCompatActivity {
         Log.i("TemplatesActivity", "OnCreateCalled");
         getSupportActionBar().setTitle("Templates");
         setUpTemplatesRv();
+        setUpApiService();
+    }
+
+    private void setUpApiService() {
+        CrudApi crudApi = new CrudApi();
+        crudService = crudApi.createCrudService();
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -75,7 +88,7 @@ public class TemplatesActivity extends AppCompatActivity {
         templatesAdapter.setOnItemActionClickListener(new OnItemActionClickListener() {
             @Override
             public void onDelete(String id) {
-                deleteMessages(id);
+                deleteTemplates(id);
             }
 
             @Override
@@ -88,9 +101,8 @@ public class TemplatesActivity extends AppCompatActivity {
     }
 
     private void fetchTemplates() {
-        TemplatesApi templatesApi = new TemplatesApi();
-        TemplatesService templatesService = templatesApi.createTemplatesService();
-        Call<List<Template>> call = templatesService.fetchTemplates();
+
+        Call<List<Template>> call = crudService.fetchTemplates();
         call.enqueue(new Callback<List<Template>>() {
             @Override
             public void onResponse(Call<List<Template>> call, Response<List<Template>> response) {
@@ -100,27 +112,25 @@ public class TemplatesActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Template>> call, Throwable t) {
-
             }
         });
 
     }
 
-    private void deleteMessages(String id) {
-        TemplatesApi templatesApi = new TemplatesApi();
-        TemplatesService templatesService = templatesApi.createTemplatesService();
-        Call<Void>call = templatesService.deleteTemplates(id);
+    private void deleteTemplates(String id) {
+
+        Call<Void>call = crudService.deleteTemplates(id);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                Toast.makeText(TemplatesActivity.this, "Succesfully delete the template", Toast.LENGTH_SHORT).show();
+                showToast("Successfully delete the template ");
                 fetchTemplates();
 
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(TemplatesActivity.this, "Failed delete the template", Toast.LENGTH_SHORT).show();
+                showToast("Failed to delete templates ");
 
             }
         });

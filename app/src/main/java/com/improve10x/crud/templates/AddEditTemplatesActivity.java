@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
+import com.improve10x.crud.network.CrudApi;
+import com.improve10x.crud.network.CrudService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -19,11 +21,13 @@ import retrofit2.Response;
 public class AddEditTemplatesActivity extends AppCompatActivity {
     private EditText messageTextTxt;
     private Template template;
+    private CrudService crudService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_templates);
+        setUpApiService();
         initView();
         if(getIntent().hasExtra(Constants.KEY_TEMPLATE)) {
             getSupportActionBar().setTitle("EditTemplates");
@@ -33,6 +37,15 @@ public class AddEditTemplatesActivity extends AppCompatActivity {
         } else {
             getSupportActionBar().setTitle("AddMessages");
         }
+    }
+
+    private void setUpApiService() {
+        CrudApi crudApi = new CrudApi();
+        crudService = crudApi.createCrudService();
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     private void initView() {
@@ -54,7 +67,7 @@ public class AddEditTemplatesActivity extends AppCompatActivity {
         if(item.getItemId() == R.id.edit) {
             String message = messageTextTxt.getText().toString();
             if(template == null) {
-                addMessages(message);
+                addTemplates(message);
             } else {
                 editTemplates(template.id, message);
             }
@@ -64,23 +77,21 @@ public class AddEditTemplatesActivity extends AppCompatActivity {
         }
     }
 
-    private void addMessages(String messageText) {
+    private void addTemplates(String messageText) {
         template = new Template();
         template.messageText = messageText;
 
-        TemplatesApi templatesApi = new TemplatesApi();
-        TemplatesService templatesService = templatesApi.createTemplatesService();
-        Call<Template>call = templatesService.createTemplates(template);
+        Call<Template>call = crudService.createTemplates(template);
         call.enqueue(new Callback<Template>() {
             @Override
             public void onResponse(Call<Template> call, Response<Template> response) {
-                Toast.makeText(AddEditTemplatesActivity.this, "Successfully added the data", Toast.LENGTH_SHORT).show();
+                showToast("Successfully added the template");
                 finish();
             }
 
             @Override
             public void onFailure(Call<Template> call, Throwable t) {
-                Toast.makeText(AddEditTemplatesActivity.this, "Failed to load the data", Toast.LENGTH_SHORT).show();
+                showToast("Failed to add template");
 
             }
         });
@@ -90,19 +101,18 @@ public class AddEditTemplatesActivity extends AppCompatActivity {
         template = new Template();
         template.messageText = message;
 
-        TemplatesApi templatesApi = new TemplatesApi();
-        TemplatesService templatesService = templatesApi.createTemplatesService();
-        Call<Void> call = templatesService.editTemplates(id, template);
+
+        Call<Void> call = crudService.editTemplates(id, template);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                Toast.makeText(AddEditTemplatesActivity.this, "Successfully edit the data", Toast.LENGTH_SHORT).show();
+                showToast("Successfully update template");
                 finish();
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(AddEditTemplatesActivity.this, "Failed to edit the data", Toast.LENGTH_SHORT).show();
+                showToast("Failed to upaDate template");
             }
         });
     }
