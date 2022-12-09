@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
+import com.improve10x.crud.network.CrudApi;
+import com.improve10x.crud.network.CrudService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,6 +23,7 @@ public class AddEditMessagesActivity extends AppCompatActivity {
     private  EditText phoneNumberTxt;
     private  EditText messageTextTxt;
     private  Message messageList;
+    private CrudService crudService;
 
 
     @Override
@@ -29,6 +32,7 @@ public class AddEditMessagesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_edit_messages);
         getSupportActionBar().setTitle("Messages");
         initValues();
+        setUpApiService();
         if (getIntent().hasExtra(Constants.KEY_MESSAGE)) {
             getSupportActionBar().setTitle("EditMessages");
            messageList = (Message) getIntent().getSerializableExtra(Constants.KEY_MESSAGE);
@@ -36,6 +40,11 @@ public class AddEditMessagesActivity extends AppCompatActivity {
         } else {
             getSupportActionBar().setTitle("AddMessages");
         }
+    }
+
+    private void setUpApiService() {
+            CrudApi crudApi = new CrudApi();
+            crudService = crudApi.createCrudService();
     }
 
     private void initValues() {
@@ -82,9 +91,8 @@ public class AddEditMessagesActivity extends AppCompatActivity {
         messageList.phoneNumber = phoneNumber;
         messageList.messageText = messageText;
 
-        MessagesApi messagesApi = new MessagesApi();
-        MessagesService messagesService = messagesApi.createMessageService();
-        Call<Message> call = messagesService.createMessage(messageList);
+
+        Call<Message> call = crudService.createMessage(messageList);
         call.enqueue(new Callback<Message>() {
             @Override
             public void onResponse(Call<Message> call, Response<Message> response) {
@@ -108,9 +116,8 @@ public class AddEditMessagesActivity extends AppCompatActivity {
         messageList.phoneNumber = phoneNumber;
         messageList.messageText = message;
 
-        MessagesApi messagesApi = new MessagesApi();
-        MessagesService messagesService = messagesApi.createMessageService();
-        Call<Void> call = messagesService.editMessages(id, messageList);
+
+        Call<Void> call = crudService.editMessages(id, messageList);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {

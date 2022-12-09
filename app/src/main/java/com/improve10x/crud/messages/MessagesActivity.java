@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
+import com.improve10x.crud.network.CrudApi;
+import com.improve10x.crud.network.CrudService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +28,7 @@ public class MessagesActivity extends AppCompatActivity {
     public ArrayList<Message> messageList = new ArrayList<>();
     private MessagesAdapter messagesAdapter;
     private RecyclerView messagesRv;
+    private CrudService crudService;
 
 
     @Override
@@ -35,6 +38,7 @@ public class MessagesActivity extends AppCompatActivity {
         Log.i("MessagesActivity", "OnCreate");
         getSupportActionBar().setTitle("Messages");
         setUpMessagesRv();
+        setUpApiService();
     }
 
     @Override
@@ -42,6 +46,11 @@ public class MessagesActivity extends AppCompatActivity {
         super.onResume();
         Log.i("MessagesActivity", "OnResume");
         fetchMessages();
+    }
+
+    private void setUpApiService() {
+        CrudApi crudApi = new CrudApi();
+        crudService = crudApi.createCrudService();
     }
 
     @Override
@@ -89,9 +98,8 @@ public class MessagesActivity extends AppCompatActivity {
     }
 
     private void fetchMessages() {
-        MessagesApi messagesApi = new MessagesApi();
-        MessagesService messagesService = messagesApi.createMessageService();
-        Call<List<Message>>call = messagesService.fetchMessages();
+
+        Call<List<Message>>call = crudService.fetchMessages();
         call.enqueue(new Callback<List<Message>>() {
             @Override
             public void onResponse(Call<List<Message>> call, Response<List<Message>> response) {
@@ -110,9 +118,7 @@ public class MessagesActivity extends AppCompatActivity {
 
     private void deleteMessages(String id) {
 
-        MessagesApi messagesApi = new MessagesApi();
-        MessagesService messagesService = messagesApi.createMessageService();
-        Call<Void> call = messagesService.deleteMessages(id);
+        Call<Void> call = crudService.deleteMessages(id);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
