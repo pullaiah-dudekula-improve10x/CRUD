@@ -47,6 +47,10 @@ public class AddEditMessagesActivity extends AppCompatActivity {
             crudService = crudApi.createCrudService();
     }
 
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
     private void initValues() {
         nameTxt = findViewById(R.id.name_txt);
         phoneNumberTxt = findViewById(R.id.phonenumber_txt);
@@ -96,14 +100,14 @@ public class AddEditMessagesActivity extends AppCompatActivity {
         call.enqueue(new Callback<Message>() {
             @Override
             public void onResponse(Call<Message> call, Response<Message> response) {
-                Toast.makeText(AddEditMessagesActivity.this, "Successfully added the data", Toast.LENGTH_SHORT).show();
+                showToast("Successfully added the message ");
                 finish();
 
             }
 
             @Override
             public void onFailure(Call<Message> call, Throwable t) {
-                Toast.makeText(AddEditMessagesActivity.this, "Failed to load the data", Toast.LENGTH_SHORT).show();
+                showToast("Failed to add the message");
 
             }
         });
@@ -121,7 +125,7 @@ public class AddEditMessagesActivity extends AppCompatActivity {
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                Toast.makeText(AddEditMessagesActivity.this, "Successfully added the data", Toast.LENGTH_SHORT).show();
+                showToast("Successfully update the message");
                 finish();
 
             }
@@ -129,6 +133,7 @@ public class AddEditMessagesActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                 Toast.makeText(AddEditMessagesActivity.this, "Failed to load data", Toast.LENGTH_SHORT).show();
+                showToast("Failed to update the message");
 
             }
         });

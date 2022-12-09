@@ -53,6 +53,10 @@ public class MessagesActivity extends AppCompatActivity {
         crudService = crudApi.createCrudService();
     }
 
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.messages_menu, menu);
@@ -122,13 +126,13 @@ public class MessagesActivity extends AppCompatActivity {
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                Toast.makeText(MessagesActivity.this, "Successfully delete the data", Toast.LENGTH_SHORT).show();
+               showToast("successfully delete the message");
                 fetchMessages();
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(MessagesActivity.this, "Failed to delete the data", Toast.LENGTH_SHORT).show();
+               showToast("failed to delete the message");
 
             }
         });
