@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
+import com.improve10x.crud.network.CrudApi;
+import com.improve10x.crud.network.CrudService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,11 +23,13 @@ public class AddEditSeriesActivity extends AppCompatActivity {
     private EditText seriesNameTxt;
     private EditText imageUrlTxt;
     private Series series;
+    private CrudService crudService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_series);
+        setUpApiService();
         initView();
         if(getIntent().hasExtra(Constants.KEY_SERIES)) {
             getSupportActionBar().setTitle("Edit Series");
@@ -35,6 +39,15 @@ public class AddEditSeriesActivity extends AppCompatActivity {
         } else {
             getSupportActionBar().setTitle("Add Series");
         }
+    }
+
+    private void setUpApiService() {
+        CrudApi crudApi = new CrudApi();
+        crudService = crudApi.createCrudService();
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     private void initView() {
@@ -82,20 +95,18 @@ public class AddEditSeriesActivity extends AppCompatActivity {
         series.title = seriesName;
         series.imageUrl = imageUrl;
 
-        SeriesApi seriesApi = new SeriesApi();
-        SeriesService seriesService = seriesApi.createSeriesService();
-        Call<Series> call = seriesService.createSeries(series);
+        Call<Series> call = crudService.createSeries(series);
         call.enqueue(new Callback<Series>() {
             @Override
             public void onResponse(Call<Series> call, Response<Series> response) {
-                Toast.makeText(AddEditSeriesActivity.this, "Successfully added the series", Toast.LENGTH_SHORT).show();
+               showToast("Successfully added the series");
                 finish();
 
             }
 
             @Override
             public void onFailure(Call<Series> call, Throwable t) {
-                Toast.makeText(AddEditSeriesActivity.this, "Failed to load Series", Toast.LENGTH_SHORT).show();
+               showToast("Failed to add the series");
 
             }
         });
@@ -106,20 +117,17 @@ public class AddEditSeriesActivity extends AppCompatActivity {
         series.title = seriesName;
         series.imageUrl = imageUrl;
 
-        SeriesApi seriesApi = new SeriesApi();
-        SeriesService seriesService = seriesApi.createSeriesService();
-        Call<Void> call = seriesService.editSeries(id, series);
+        Call<Void> call = crudService.editSeries(id, series);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                Toast.makeText(AddEditSeriesActivity.this, "Successfully update the series", Toast.LENGTH_SHORT).show();
+                showToast("Successfully update the series");
                 finish();
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(AddEditSeriesActivity.this, "Failed to update the series", Toast.LENGTH_SHORT).show();
-
+               showToast("Failed to update the series");
             }
         });
     }

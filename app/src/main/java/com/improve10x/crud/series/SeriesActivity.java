@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
+import com.improve10x.crud.network.CrudApi;
+import com.improve10x.crud.network.CrudService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +28,7 @@ public class SeriesActivity extends AppCompatActivity {
     private ArrayList<Series> seriesList = new ArrayList<>();
     private RecyclerView seriesRv;
     private SeriesAdapter seriesAdapter;
+    private CrudService crudService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,20 @@ public class SeriesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_series);
         Log.i("SeriesActivity", "OnCreate");
         setUpSeriesRv();
+        setUpApiService();
+
     }
+
+    private void setUpApiService() {
+        CrudApi crudApi = new CrudApi();
+        crudService = crudApi.createCrudService();
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -50,7 +66,6 @@ public class SeriesActivity extends AppCompatActivity {
         } else {
             return super.onOptionsItemSelected(item);
         }
-
     }
 
     @Override
@@ -88,9 +103,7 @@ public class SeriesActivity extends AppCompatActivity {
     }
 
     private void fetchSeries() {
-        SeriesApi seriesApi = new SeriesApi();
-        SeriesService seriesService = seriesApi.createSeriesService();
-        Call<List<Series>> call = seriesService.fetchSeries();
+        Call<List<Series>> call = crudService.fetchSeries();
         call.enqueue(new Callback<List<Series>>() {
             @Override
             public void onResponse(Call<List<Series>> call, Response<List<Series>> response) {
@@ -106,20 +119,19 @@ public class SeriesActivity extends AppCompatActivity {
 
     }
     private void deleteSeries(String id) {
-        SeriesApi seriesApi = new SeriesApi();
-        SeriesService seriesService = seriesApi.createSeriesService();
-        Call<Void> call = seriesService.deleteSeries(id);
+
+        Call<Void> call = crudService.deleteSeries(id);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                Toast.makeText(SeriesActivity.this, "Successfully delete the sseries", Toast.LENGTH_SHORT).show();
+                showToast("Successfully delete the series");
                 fetchSeries();
 
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(SeriesActivity.this, "Failed to delete the data", Toast.LENGTH_SHORT).show();
+                showToast("Successfully delete the series");
 
             }
         });
