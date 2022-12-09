@@ -35,7 +35,7 @@ public class MessagesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messages);
-        Log.i("MessagesActivity", "OnCreate");
+        log("onCreate");
         getSupportActionBar().setTitle("Messages");
         setUpMessagesRv();
         setUpApiService();
@@ -44,7 +44,7 @@ public class MessagesActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i("MessagesActivity", "OnResume");
+        log("OnResume");
         fetchMessages();
     }
 
@@ -137,5 +137,9 @@ public class MessagesActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void log(String message) {
+        Log.i("MessagesActivity", message);
     }
 }

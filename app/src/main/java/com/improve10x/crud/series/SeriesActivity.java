@@ -34,7 +34,7 @@ public class SeriesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_series);
-        Log.i("SeriesActivity", "OnCreate");
+        log("onCreate");
         setUpSeriesRv();
         setUpApiService();
 
@@ -49,7 +49,9 @@ public class SeriesActivity extends AppCompatActivity {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
-
+    private void log(String message) {
+        Log.i("seriesActivity", message);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -71,7 +73,7 @@ public class SeriesActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i("SeriesActivity", "OnResumeCalled");
+        log("onResume");
         fetchSeries();
     }
 

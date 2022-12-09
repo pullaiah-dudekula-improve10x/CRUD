@@ -35,7 +35,7 @@ public class TemplatesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_templates);
-        Log.i("TemplatesActivity", "OnCreateCalled");
+        log("onCreate");
         getSupportActionBar().setTitle("Templates");
         setUpTemplatesRv();
         setUpApiService();
@@ -50,10 +50,14 @@ public class TemplatesActivity extends AppCompatActivity {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
+    private void log(String message) {
+        Log.i("templatesActivity", message);
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i("TemplatesActivity", "OnResumeCalled");
+        log("onResume");
         fetchTemplates();
     }
 
