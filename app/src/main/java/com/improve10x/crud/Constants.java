@@ -12,6 +12,8 @@ public class Constants {
 
     public static final String END_POINT_TEMPLATE = "marsTemplates";
 
+    public static final String MOVIES_END_POINT = "sureshMovies";
+
     public static final String END_POINT_SERIES = "series";
 
     public static final String BASE_URL = "https://crudcrud.com/api/479dd07f8c1d482e9219f7dcb48e25f4/";

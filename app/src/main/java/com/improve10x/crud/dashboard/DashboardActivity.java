@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.improve10x.crud.R;
 
@@ -19,6 +20,8 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        Log.i("DashboardActivity", "OnCreateCalled");
+
         getSupportActionBar().setTitle("Dashboard");
         setUpData();
         setUpDashboardRv();
@@ -35,12 +38,12 @@ public class DashboardActivity extends AppCompatActivity {
     private void setUpData() {
         dashboards = new ArrayList<>();
         Dashboard messages = new Dashboard();
-        messages.imageUrl = "https://www.mediashower.com/img/2233/first%20text.jpg";
+        messages.imageUrl = "https://static.vecteezy.com/system/resources/previews/000/338/561/original/vector-message-icon.jpg";
         messages.title = "Messages";
         dashboards.add(messages);
 
         Dashboard templates = new Dashboard();
-        templates.imageUrl = "texttasy.com/img/message.svg";
+        templates.imageUrl = "https://static.vecteezy.com/system/resources/previews/000/331/303/original/vector-message-icon.jpg";
         templates.title = "Templates";
         dashboards.add(templates);
 
