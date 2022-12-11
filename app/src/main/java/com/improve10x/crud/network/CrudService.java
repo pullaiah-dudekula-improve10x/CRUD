@@ -1,7 +1,7 @@
 package com.improve10x.crud.network;
 
 import com.improve10x.crud.Constants;
-import com.improve10x.crud.Movie;
+import com.improve10x.crud.movies.Movie;
 import com.improve10x.crud.messages.Message;
 import com.improve10x.crud.series.Series;
 import com.improve10x.crud.templates.Template;
@@ -61,7 +61,7 @@ public interface CrudService {
     Call<Movie> createMovie(@Body Movie movie);
 
     @DELETE(Constants.MOVIES_END_POINT + "/{id}")
-    Call<Void> deleteMovie(@Path("id") String id);
+    Call<Void> deleteMovie(@Path(("id")) String id);
 
     @PUT(Constants.MOVIES_END_POINT + "/{id}")
     Call<Void> updateMovie(@Path("id") String id, @Body Movie movie);

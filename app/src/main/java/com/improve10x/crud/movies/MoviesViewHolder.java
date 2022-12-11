@@ -1,4 +1,4 @@
-package com.improve10x.crud;
+package com.improve10x.crud.movies;
 
 import android.view.View;
 import android.widget.ImageButton;
@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.improve10x.crud.R;
+
 public class MoviesViewHolder extends RecyclerView.ViewHolder {
     ImageView imageImg;
     ImageButton deleteBtn;
@@ -16,6 +18,6 @@ public class MoviesViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         imageImg = itemView.findViewById(R.id.image_img);
         deleteBtn = itemView.findViewById(R.id.delete_btn);
-        titleTxt = itemView.findViewById(R.id.title_txt);
+        titleTxt = itemView.findViewById(R.id.title_text_txt);
     }
 }

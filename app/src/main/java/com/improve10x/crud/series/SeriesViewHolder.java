@@ -18,7 +18,7 @@ public class SeriesViewHolder extends RecyclerView.ViewHolder {
     public SeriesViewHolder(@NonNull View itemView) {
         super(itemView);
         imageImg = itemView.findViewById(R.id.image_img);
-        titleTxt = itemView.findViewById(R.id.title_txt);
+        titleTxt = itemView.findViewById(R.id.title_text_txt);
         seriesDeleteBtn = itemView.findViewById(R.id.series_delete_btn);
     }
 }

@@ -1,30 +1,31 @@
-package com.improve10x.crud;
+package com.improve10x.crud.movies;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.improve10x.crud.series.OnItemActionClickListener;
+import com.improve10x.crud.R;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesViewHolder> {
     private List<Movie> movies;
-    public OnItemActionClickListener onItemActionClickListener;
+    private OnItemActionClickListener onItemActionClickListener;
+
 
     public void setData(List<Movie> movieList) {
         movies = movieList;
         notifyDataSetChanged();
     }
-    public  void setOnItemActionListener(OnItemActionClickListener actionListener) {
-        onItemActionClickListener = actionListener;
+
+    public void setOnItemActionClickListener(OnItemActionClickListener actionClickListener) {
+        onItemActionClickListener = actionClickListener;
     }
+
     @NonNull
     @Override
     public MoviesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -38,6 +39,14 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesViewHolder> {
         Movie movie = movies.get(position);
         Picasso.get().load(movie.imageUrl).into(holder.imageImg);
         holder.titleTxt.setText(movie.name);
+        holder.deleteBtn.setOnClickListener(view -> {
+            onItemActionClickListener.onDelete(movie.id);
+        });
+        holder.itemView.setOnClickListener(view -> {
+            onItemActionClickListener.onEdit(movie);
+        });
+
+
     }
 
     @Override
