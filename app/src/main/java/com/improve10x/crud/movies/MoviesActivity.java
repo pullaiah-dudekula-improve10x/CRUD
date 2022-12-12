@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
+import com.improve10x.crud.base.BaseActivity;
 import com.improve10x.crud.network.CrudApi;
 import com.improve10x.crud.network.CrudService;
 import com.improve10x.crud.series.Series;
@@ -24,7 +25,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MoviesActivity extends AppCompatActivity {
+public class MoviesActivity extends BaseActivity {
     private ArrayList<Movie> movies = new ArrayList<>();
     private RecyclerView moviesRv;
     private MoviesAdapter moviesAdapter;
@@ -34,6 +35,7 @@ public class MoviesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies);
+        log("onCreate");
         setUpMoviesRv();
 
     }
@@ -42,6 +44,7 @@ public class MoviesActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         fetchMovies();
+        log("onResume");
     }
 
     @Override
@@ -104,13 +107,13 @@ public class MoviesActivity extends AppCompatActivity {
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                Toast.makeText(MoviesActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                showToast("Successfully delete the movie");
                 fetchMovies();
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(MoviesActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                showToast("Failed to delete the movie");
 
             }
         });

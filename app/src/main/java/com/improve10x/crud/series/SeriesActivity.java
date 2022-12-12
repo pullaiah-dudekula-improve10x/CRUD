@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
+import com.improve10x.crud.base.BaseActivity;
 import com.improve10x.crud.network.CrudApi;
 import com.improve10x.crud.network.CrudService;
 
@@ -24,7 +25,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SeriesActivity extends AppCompatActivity {
+public class SeriesActivity extends BaseActivity {
     private ArrayList<Series> seriesList = new ArrayList<>();
     private RecyclerView seriesRv;
     private SeriesAdapter seriesAdapter;
@@ -43,14 +44,6 @@ public class SeriesActivity extends AppCompatActivity {
     private void setUpApiService() {
         CrudApi crudApi = new CrudApi();
         crudService = crudApi.createCrudService();
-    }
-
-    private void showToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
-
-    private void log(String message) {
-        Log.i("seriesActivity", message);
     }
 
     @Override
@@ -73,8 +66,8 @@ public class SeriesActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        log("onResume");
         fetchSeries();
+        log("onResume");
     }
 
     private void editSeries(Series series) {

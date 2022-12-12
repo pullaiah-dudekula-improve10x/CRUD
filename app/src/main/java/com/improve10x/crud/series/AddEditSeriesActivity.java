@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
+import com.improve10x.crud.base.BaseActivity;
 import com.improve10x.crud.network.CrudApi;
 import com.improve10x.crud.network.CrudService;
 
@@ -18,7 +19,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AddEditSeriesActivity extends AppCompatActivity {
+public class AddEditSeriesActivity extends BaseActivity {
     private EditText seriesIdTxt;
     private EditText seriesNameTxt;
     private EditText imageUrlTxt;
@@ -44,10 +45,6 @@ public class AddEditSeriesActivity extends AppCompatActivity {
     private void setUpApiService() {
         CrudApi crudApi = new CrudApi();
         crudService = crudApi.createCrudService();
-    }
-
-    private void showToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     private void initView() {

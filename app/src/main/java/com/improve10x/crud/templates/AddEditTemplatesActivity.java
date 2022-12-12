@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
+import com.improve10x.crud.base.BaseActivity;
 import com.improve10x.crud.network.CrudApi;
 import com.improve10x.crud.network.CrudService;
 
@@ -18,7 +19,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AddEditTemplatesActivity extends AppCompatActivity {
+public class AddEditTemplatesActivity extends BaseActivity {
     private EditText messageTextTxt;
     private Template template;
     private CrudService crudService;
@@ -44,9 +45,6 @@ public class AddEditTemplatesActivity extends AppCompatActivity {
         crudService = crudApi.createCrudService();
     }
 
-    private void showToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
 
     private void initView() {
         messageTextTxt = findViewById(R.id.message_text_txt);

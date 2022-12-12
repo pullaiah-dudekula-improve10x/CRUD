@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
+import com.improve10x.crud.base.BaseActivity;
 import com.improve10x.crud.network.CrudApi;
 import com.improve10x.crud.network.CrudService;
 
@@ -24,7 +25,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TemplatesActivity extends AppCompatActivity {
+public class TemplatesActivity extends BaseActivity {
 
     private ArrayList<Template> templates = new ArrayList<>();
     private RecyclerView templatesRv;
@@ -46,19 +47,11 @@ public class TemplatesActivity extends AppCompatActivity {
         crudService = crudApi.createCrudService();
     }
 
-    private void showToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
-
-    private void log(String message) {
-        Log.i("templatesActivity", message);
-    }
-
     @Override
     protected void onResume() {
         super.onResume();
-        log("onResume");
         fetchTemplates();
+        log("onResume");
     }
 
     @Override

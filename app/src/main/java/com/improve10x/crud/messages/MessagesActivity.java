@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
+import com.improve10x.crud.base.BaseActivity;
 import com.improve10x.crud.network.CrudApi;
 import com.improve10x.crud.network.CrudService;
 
@@ -24,7 +25,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MessagesActivity extends AppCompatActivity {
+public class MessagesActivity extends BaseActivity {
     public ArrayList<Message> messageList = new ArrayList<>();
     private MessagesAdapter messagesAdapter;
     private RecyclerView messagesRv;
@@ -44,17 +45,13 @@ public class MessagesActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        log("OnResume");
         fetchMessages();
+        log("OnResume");
     }
 
     private void setUpApiService() {
         CrudApi crudApi = new CrudApi();
         crudService = crudApi.createCrudService();
-    }
-
-    private void showToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -139,7 +136,4 @@ public class MessagesActivity extends AppCompatActivity {
 
     }
 
-    private void log(String message) {
-        Log.i("MessagesActivity", message);
-    }
 }

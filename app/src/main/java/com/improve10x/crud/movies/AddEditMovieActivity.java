@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
+import com.improve10x.crud.base.BaseActivity;
 import com.improve10x.crud.network.CrudApi;
 import com.improve10x.crud.network.CrudService;
 import com.improve10x.crud.series.Series;
@@ -23,7 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AddEditMovieActivity extends AppCompatActivity {
+public class AddEditMovieActivity extends BaseActivity {
     private CustomSeriesAdapter customSeriesAdapter;
     private ArrayList<Series> seriesList = new ArrayList<>();
     private Movie movie;
@@ -33,6 +34,7 @@ public class AddEditMovieActivity extends AppCompatActivity {
     private EditText movieDescriptionTxt;
     private Spinner seriesSp;
     private Series series;
+    private CrudService crudService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class AddEditMovieActivity extends AppCompatActivity {
         initValue();
         fetchSeries();
         setUpSeriesSp();
+        log("onCreate");
 
         if(getIntent().hasExtra(Constants.KEY_MOVIES)) {
             getSupportActionBar().setTitle("Edit Movie");
@@ -99,6 +102,7 @@ public class AddEditMovieActivity extends AppCompatActivity {
             }
         });
     }
+
     private void addMovies(String movieId, String seriesId, String imageUrl, String title, String description) {
         movie = new Movie();
         movie.movieId = movieId;
@@ -113,17 +117,18 @@ public class AddEditMovieActivity extends AppCompatActivity {
         call.enqueue(new Callback<Movie>() {
             @Override
             public void onResponse(Call<Movie> call, Response<Movie> response) {
-                Toast.makeText(AddEditMovieActivity.this, "Successfully added the movie", Toast.LENGTH_SHORT).show();
+                showToast("Successfully added the movie");
                 finish();
             }
 
             @Override
             public void onFailure(Call<Movie> call, Throwable t) {
-                Toast.makeText(AddEditMovieActivity.this, "Failed to load data", Toast.LENGTH_SHORT).show();
+                showToast("Failed to add the movie");
 
             }
         });
     }
+
     private void updateMovies(String id, String movieId, String seriesId, String imageUrl, String title, String description) {
         movie = new Movie();
         movie.movieId = movieId;
@@ -138,19 +143,20 @@ public class AddEditMovieActivity extends AppCompatActivity {
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                Toast.makeText(AddEditMovieActivity.this, "Successfully", Toast.LENGTH_SHORT).show();
+                showToast("Successfully update the movie");
                 finish();
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(AddEditMovieActivity.this, "", Toast.LENGTH_SHORT).show();
+                showToast("Failed to update the movie");
 
 
             }
         });
 
     }
+
     private void initValue() {
         seriesSp = findViewById(R.id.series_sp);
         movieIdTxt = findViewById(R.id.movie_id_txt);
@@ -158,6 +164,7 @@ public class AddEditMovieActivity extends AppCompatActivity {
         movieImageUrlTxt = findViewById(R.id.movie_imageurl_txt);
         movieDescriptionTxt = findViewById(R.id.description_txt);
     }
+
     private void showData() {
         movieIdTxt.setText(movie.movieId);
         movieNameTxt.setText(movie.name);
@@ -170,10 +177,9 @@ public class AddEditMovieActivity extends AppCompatActivity {
             }
         }
     }
-    private void setUpSeriesSp() {
 
+    private void setUpSeriesSp() {
         customSeriesAdapter = new CustomSeriesAdapter(this, android.R.layout.simple_list_item_1, seriesList);
         seriesSp.setAdapter(customSeriesAdapter);
     }
-
 }
