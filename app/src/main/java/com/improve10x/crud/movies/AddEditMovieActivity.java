@@ -38,12 +38,13 @@ public class AddEditMovieActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_movie);
-        setUpSeriesSp();
-        fetchSeries();
         initValue();
+        fetchSeries();
+        setUpSeriesSp();
+
         if(getIntent().hasExtra(Constants.KEY_MOVIES)) {
             getSupportActionBar().setTitle("Edit Movie");
-            getIntent().getSerializableExtra(Constants.KEY_MOVIES);
+            movie = (Movie) getIntent().getSerializableExtra(Constants.KEY_MOVIES);
             showData();
         } else {
             getSupportActionBar().setTitle("Add Movie");
@@ -151,7 +152,7 @@ public class AddEditMovieActivity extends AppCompatActivity {
 
     }
     private void initValue() {
-
+        seriesSp = findViewById(R.id.series_sp);
         movieIdTxt = findViewById(R.id.movie_id_txt);
         movieNameTxt = findViewById(R.id.movie_name_txt);
         movieImageUrlTxt = findViewById(R.id.movie_imageurl_txt);
@@ -164,13 +165,13 @@ public class AddEditMovieActivity extends AppCompatActivity {
         movieDescriptionTxt.setText(movie.description);
         for (int i = 0; i<customSeriesAdapter.getCount(); i++) {
             series = customSeriesAdapter.getItem(i);
-            if(movie.movieId.equals(series.id)) {
+            if(movie.seriesId.equals(series.seriesId)) {
                 seriesSp.setSelection(i);
             }
         }
     }
     private void setUpSeriesSp() {
-        seriesSp = findViewById(R.id.series_sp);
+
         customSeriesAdapter = new CustomSeriesAdapter(this, android.R.layout.simple_list_item_1, seriesList);
         seriesSp.setAdapter(customSeriesAdapter);
     }

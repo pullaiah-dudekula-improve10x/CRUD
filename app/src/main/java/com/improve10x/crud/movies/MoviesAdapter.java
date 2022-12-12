@@ -45,8 +45,6 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesViewHolder> {
         holder.itemView.setOnClickListener(view -> {
             onItemActionClickListener.onEdit(movie);
         });
-
-
     }
 
     @Override
