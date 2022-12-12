@@ -32,7 +32,10 @@
             android:name=".series.SeriesActivity"
             android:exported="false" />
         <activity
-            android:name=".templates.BaseAddEditTemplateActivity"
+            android:name=".templates.AddTemplateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".templates.EditTemplateActivity"
             android:exported="false" />
         <activity
             android:name=".templates.TemplatesActivity"
