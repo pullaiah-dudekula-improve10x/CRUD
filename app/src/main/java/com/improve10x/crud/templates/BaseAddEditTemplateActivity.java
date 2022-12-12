@@ -1,13 +1,11 @@
 package com.improve10x.crud.templates;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
@@ -19,7 +17,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AddEditTemplatesActivity extends BaseActivity {
+public class BaseAddEditTemplateActivity extends BaseActivity {
     private EditText messageTextTxt;
     private Template template;
     private CrudService crudService;

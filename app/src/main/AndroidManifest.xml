@@ -32,13 +32,16 @@
             android:name=".series.SeriesActivity"
             android:exported="false" />
         <activity
-            android:name=".templates.AddEditTemplatesActivity"
+            android:name=".templates.BaseAddEditTemplateActivity"
             android:exported="false" />
         <activity
             android:name=".templates.TemplatesActivity"
             android:exported="false" />
         <activity
-            android:name=".messages.AddEditMessagesActivity"
+            android:name=".messages.AddMessagesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".messages.EditMessageActivity"
             android:exported="false" />
         <activity
             android:name=".messages.MessagesActivity"

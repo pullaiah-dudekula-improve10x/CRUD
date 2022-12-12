@@ -1,16 +1,13 @@
 package com.improve10x.crud.templates;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
@@ -63,7 +60,7 @@ public class TemplatesActivity extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.add) {
-            Intent intent = new Intent(this, AddEditTemplatesActivity.class);
+            Intent intent = new Intent(this, BaseAddEditTemplateActivity.class);
             startActivity(intent);
             return true;
         } else {
@@ -72,7 +69,7 @@ public class TemplatesActivity extends BaseActivity {
     }
 
     private void ediTask(Template template) {
-        Intent intent = new Intent(this, AddEditTemplatesActivity.class);
+        Intent intent = new Intent(this, BaseAddEditTemplateActivity.class);
         intent.putExtra(Constants.KEY_TEMPLATE, template);
         startActivity(intent);
     }

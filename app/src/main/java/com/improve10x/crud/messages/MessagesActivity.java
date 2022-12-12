@@ -1,16 +1,13 @@
 package com.improve10x.crud.messages;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
@@ -63,7 +60,7 @@ public class MessagesActivity extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.add) {
-            Intent intent = new Intent(this, AddEditMessagesActivity.class);
+            Intent intent = new Intent(this, AddMessagesActivity.class);
             startActivity(intent);
             return true;
         } else {
@@ -72,7 +69,7 @@ public class MessagesActivity extends BaseActivity {
     }
 
     private void editTask(Message message) {
-        Intent intent = new Intent(this, AddEditMessagesActivity.class);
+        Intent intent = new Intent(this, EditMessageActivity.class);
         intent.putExtra(Constants.KEY_MESSAGE, message);
         startActivity(intent);
 
