@@ -44,6 +44,7 @@ public class AddEditMovieActivity extends BaseActivity {
         fetchSeries();
         setUpSeriesSp();
         log("onCreate");
+        setUpApiService();
 
         if(getIntent().hasExtra(Constants.KEY_MOVIES)) {
             getSupportActionBar().setTitle("Edit Movie");
@@ -82,8 +83,7 @@ public class AddEditMovieActivity extends BaseActivity {
     }
 
     private void fetchSeries() {
-        CrudApi crudApi = new CrudApi();
-        CrudService crudService =  crudApi.createCrudService();
+
         Call<List<Series>>call = crudService.fetchSeries();
         call.enqueue(new Callback<List<Series>>() {
             @Override
@@ -111,8 +111,6 @@ public class AddEditMovieActivity extends BaseActivity {
         movie.name = title;
         movie.description = description;
 
-        CrudApi crudApi = new CrudApi();
-        CrudService crudService = crudApi.createCrudService();
         Call<Movie> call = crudService.createMovie(movie);
         call.enqueue(new Callback<Movie>() {
             @Override
@@ -137,8 +135,7 @@ public class AddEditMovieActivity extends BaseActivity {
         movie.name = title;
         movie.description = description;
 
-        CrudApi crudApi = new CrudApi();
-        CrudService crudService = crudApi.createCrudService();
+
         Call<Void> call = crudService.updateMovie(id, movie);
         call.enqueue(new Callback<Void>() {
             @Override
@@ -181,5 +178,10 @@ public class AddEditMovieActivity extends BaseActivity {
     private void setUpSeriesSp() {
         customSeriesAdapter = new CustomSeriesAdapter(this, android.R.layout.simple_list_item_1, seriesList);
         seriesSp.setAdapter(customSeriesAdapter);
+    }
+
+    private void setUpApiService() {
+        CrudApi crudApi = new CrudApi();
+        crudService = crudApi.createCrudService();
     }
 }
