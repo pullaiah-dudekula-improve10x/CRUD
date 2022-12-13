@@ -1,16 +1,13 @@
 package com.improve10x.crud.series;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
@@ -55,7 +52,7 @@ public class SeriesActivity extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.add) {
-            Intent intent = new Intent(this, AddEditSeriesActivity.class);
+            Intent intent = new Intent(this, AddSeriesActivity.class);
             startActivity(intent);
             return true;
         } else {
@@ -71,7 +68,7 @@ public class SeriesActivity extends BaseActivity {
     }
 
     private void editSeries(Series series) {
-        Intent intent = new Intent(this, AddEditSeriesActivity.class);
+        Intent intent = new Intent(this, EditSeriesActivity.class);
         intent.putExtra(Constants.KEY_SERIES, series);
         startActivity(intent);
     }

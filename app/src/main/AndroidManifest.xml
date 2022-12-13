@@ -26,7 +26,10 @@
             android:name=".movies.MoviesActivity"
             android:exported="false" />
         <activity
-            android:name=".series.AddEditSeriesActivity"
+            android:name=".series.AddSeriesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".series.EditSeriesActivity"
             android:exported="false" />
         <activity
             android:name=".series.SeriesActivity"
