@@ -13,6 +13,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class EditSeriesActivity extends BaseAddEditSeriesActivity {
+
+    private Series series;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +23,6 @@ public class EditSeriesActivity extends BaseAddEditSeriesActivity {
             getSupportActionBar().setTitle("Edit Series");
             series = (Series) getIntent().getSerializableExtra(Constants.KEY_SERIES);
             showData();
-
         }
     }
 
@@ -32,7 +34,7 @@ public class EditSeriesActivity extends BaseAddEditSeriesActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.edit) {
+        if (item.getItemId() == R.id.save) {
             String seriesId = seriesIdTxt.getText().toString();
             String name = seriesNameTxt.getText().toString();
             String imageUrl = imageUrlTxt.getText().toString();

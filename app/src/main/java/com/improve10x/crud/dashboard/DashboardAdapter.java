@@ -9,8 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.improve10x.crud.movies.MoviesActivity;
-import com.improve10x.crud.series.SeriesActivity;
-import com.improve10x.crud.templates.TemplatesActivity;
+import com.improve10x.crud.series.SeriesListActivity;
+import com.improve10x.crud.template.TemplatesActivity;
 import com.improve10x.crud.messages.MessagesActivity;
 import com.improve10x.crud.R;
 import com.squareup.picasso.Picasso;
@@ -19,10 +19,10 @@ import java.util.ArrayList;
 
 public class DashboardAdapter extends RecyclerView.Adapter<DashboardViewHolder> {
 
-    private ArrayList<Dashboard> dashboards;
+    private ArrayList<Dashboard> dashboardItems;
 
     public void setData(ArrayList<Dashboard> dashboardList) {
-        dashboards = dashboardList;
+        dashboardItems = dashboardList;
         notifyDataSetChanged();
     }
     @NonNull
@@ -35,10 +35,10 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull DashboardViewHolder holder, int position) {
-        Dashboard dashboard = dashboards.get(position);
+        Dashboard dashboard = dashboardItems.get(position);
         Picasso.get().load(dashboard.imageUrl).into(holder.imageImg);
         holder.titleTxt.setText(dashboard.title);
-        holder.dashboardLayout.setOnClickListener(view -> {
+        holder.itemView.setOnClickListener(view -> {
              if(holder.titleTxt.getText().toString().equalsIgnoreCase("Messages")) {
                  Intent intent = new Intent(holder.itemView.getContext(), MessagesActivity.class );
                  holder.itemView.getContext().startActivity(intent);
@@ -46,7 +46,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardViewHolder> 
                  Intent intent = new Intent(holder.itemView.getContext(), TemplatesActivity.class);
                  holder.itemView.getContext().startActivity(intent);
              } else if(holder.titleTxt.getText().toString().equalsIgnoreCase("Series")) {
-                 Intent intent = new Intent(holder.itemView.getContext(), SeriesActivity.class);
+                 Intent intent = new Intent(holder.itemView.getContext(), SeriesListActivity.class);
                  holder.itemView.getContext().startActivity(intent);
              } else if (holder.titleTxt.getText().toString().equalsIgnoreCase("Movies")) {
                  Intent intent = new Intent(holder.itemView.getContext(), MoviesActivity.class );
@@ -57,6 +57,6 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardViewHolder> 
 
     @Override
     public int getItemCount() {
-        return dashboards.size();
+        return dashboardItems.size();
     }
 }

@@ -1,25 +1,17 @@
-package com.improve10x.crud.templates;
-
-import androidx.annotation.NonNull;
+package com.improve10x.crud.template;
 
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.EditText;
 
-import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
 import com.improve10x.crud.base.BaseActivity;
 import com.improve10x.crud.network.CrudApi;
 import com.improve10x.crud.network.CrudService;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 public class BaseAddEditTemplateActivity extends BaseActivity {
+
     protected EditText messageTextTxt;
-    protected Template template;
     protected CrudService crudService;
 
     @Override
@@ -34,7 +26,7 @@ public class BaseAddEditTemplateActivity extends BaseActivity {
         CrudApi crudApi = new CrudApi();
         crudService = crudApi.createCrudService();
     }
-
+//change name initView ti initViews
     private void initView() {
         messageTextTxt = findViewById(R.id.message_text_txt);
     }

@@ -2,7 +2,6 @@ package com.improve10x.crud.messages;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -14,14 +13,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class EditMessageActivity extends BaseAddEditMessagesActivity{
+    //declare here private Message message
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getIntent().hasExtra(Constants.KEY_MESSAGE)) {
-            getSupportActionBar().setTitle("EditMessages");
+            getSupportActionBar().setTitle("Edit Messages");
             messageList = (Message) getIntent().getSerializableExtra(Constants.KEY_MESSAGE);
             showData();
-
         }
     }
 
@@ -31,28 +30,25 @@ public class EditMessageActivity extends BaseAddEditMessagesActivity{
         messageTextTxt.setText(messageList.messageText);
 
     }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.edit) {
+        if(item.getItemId() == R.id.save) {
             String name = this.nameTxt.getText().toString();
             String phoneNumber = this.phoneNumberTxt.getText().toString();
             String message = this.messageTextTxt.getText().toString();
-            if (this.messageList == null) {
-            } else {
-                updateMessages(messageList.id, name, phoneNumber, message);
-
-            }
+            updateMessage(messageList.id, name, phoneNumber, message);
             return true;
         } else {
             return super.onOptionsItemSelected(item);
         }
     }
-    private void updateMessages(String id, String name, String phoneNumber, String message) {
+
+    private void updateMessage(String id, String name, String phoneNumber, String message) {
         messageList = new Message();
         messageList.name = name;
         messageList.phoneNumber = phoneNumber;
         messageList.messageText = message;
-
 
         Call<Void> call = crudService.editMessages(id, messageList);
         call.enqueue(new Callback<Void>() {
@@ -60,16 +56,12 @@ public class EditMessageActivity extends BaseAddEditMessagesActivity{
             public void onResponse(Call<Void> call, Response<Void> response) {
                 showToast("Successfully update the message");
                 finish();
-
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                 showToast("Failed to update the message");
-
             }
         });
     }
-
-
 }

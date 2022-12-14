@@ -16,12 +16,20 @@
         android:theme="@style/Theme.CRUD"
         tools:targetApi="31">
         <activity
-            android:name=".movies.AddEditMovieActivity"
+            android:name=".movies.AddMovieActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity
+            android:name=".movies.EditMovieActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
         <activity
             android:name=".movies.MoviesActivity"
             android:exported="false" />
@@ -32,19 +40,19 @@
             android:name=".series.EditSeriesActivity"
             android:exported="false" />
         <activity
-            android:name=".series.SeriesActivity"
+            android:name=".series.SeriesListActivity"
             android:exported="false" />
         <activity
-            android:name=".templates.AddTemplateActivity"
+            android:name=".template.AddTemplateActivity"
             android:exported="false" />
         <activity
-            android:name=".templates.EditTemplateActivity"
+            android:name=".template.EditTemplateActivity"
             android:exported="false" />
         <activity
-            android:name=".templates.TemplatesActivity"
+            android:name=".template.TemplatesActivity"
             android:exported="false" />
         <activity
-            android:name=".messages.AddMessagesActivity"
+            android:name=".messages.AddMessageActivity"
             android:exported="false" />
         <activity
             android:name=".messages.EditMessageActivity"
@@ -56,7 +64,7 @@
             android:name=".dashboard.DashboardActivity"
             android:exported="false" />
         <activity
-            android:name=".dashboard.SplashScreen"
+            android:name=".dashboard.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -12,6 +12,7 @@ import com.improve10x.crud.R;
 import java.util.List;
 
 public class MessagesAdapter extends RecyclerView.Adapter<MessagesViewHolder> {
+
     private List<Message> messageList;
     public com.improve10x.crud.messages.onItemActionClickListener onItemActionClickListener;
 
@@ -42,7 +43,6 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesViewHolder> {
         holder.itemView.setOnClickListener(view -> {
             onItemActionClickListener.onEdit(message);
         });
-
     }
 
     @Override

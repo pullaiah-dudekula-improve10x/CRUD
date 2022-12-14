@@ -22,7 +22,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SeriesActivity extends BaseActivity {
+public class SeriesListActivity extends BaseActivity {
+
     private ArrayList<Series> seriesList = new ArrayList<>();
     private RecyclerView seriesRv;
     private SeriesAdapter seriesAdapter;
@@ -32,10 +33,10 @@ public class SeriesActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_series);
+        getSupportActionBar().setTitle("Series List");
         log("onCreate");
         setUpSeriesRv();
         setUpApiService();
-
     }
 
     private void setUpApiService() {
@@ -72,7 +73,7 @@ public class SeriesActivity extends BaseActivity {
         intent.putExtra(Constants.KEY_SERIES, series);
         startActivity(intent);
     }
-
+//change name setupSeriesRv to seriesListRv
     private void setUpSeriesRv() {
         seriesRv = findViewById(R.id.series_rv);
         seriesRv.setLayoutManager(new LinearLayoutManager(this));
@@ -82,20 +83,18 @@ public class SeriesActivity extends BaseActivity {
             @Override
             public void onDelete(String id) {
                 deleteSeries(id);
-
             }
 
             @Override
             public void onEdit(Series series) {
                 editSeries(series);
-
             }
         });
         seriesRv.setAdapter(seriesAdapter);
     }
-
+//change fetchSeries to seriesList
     private void fetchSeries() {
-        Call<List<Series>> call = crudService.fetchSeries();
+        Call<List<Series>> call = crudService.fetchSeriesItems();
         call.enqueue(new Callback<List<Series>>() {
             @Override
             public void onResponse(Call<List<Series>> call, Response<List<Series>> response) {
@@ -105,7 +104,7 @@ public class SeriesActivity extends BaseActivity {
 
             @Override
             public void onFailure(Call<List<Series>> call, Throwable t) {
-
+                showToast("Failed to fetch Series");
             }
         });
 
@@ -118,13 +117,11 @@ public class SeriesActivity extends BaseActivity {
             public void onResponse(Call<Void> call, Response<Void> response) {
                 showToast("Successfully delete the series");
                 fetchSeries();
-
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                 showToast("Successfully delete the series");
-
             }
         });
 

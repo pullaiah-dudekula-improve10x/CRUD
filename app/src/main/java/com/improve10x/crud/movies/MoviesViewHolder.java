@@ -11,13 +11,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.improve10x.crud.R;
 
 public class MoviesViewHolder extends RecyclerView.ViewHolder {
-    ImageView imageImg;
+
+    ImageView moviesImg;
     ImageButton deleteBtn;
-    TextView titleTxt;
+    TextView moviesTxt;
     public MoviesViewHolder(@NonNull View itemView) {
         super(itemView);
-        imageImg = itemView.findViewById(R.id.image_img);
+        //change the id names
+        moviesImg = itemView.findViewById(R.id.image_img);
         deleteBtn = itemView.findViewById(R.id.delete_btn);
-        titleTxt = itemView.findViewById(R.id.title_text_txt);
+        moviesTxt = itemView.findViewById(R.id.title_text_txt);
     }
 }

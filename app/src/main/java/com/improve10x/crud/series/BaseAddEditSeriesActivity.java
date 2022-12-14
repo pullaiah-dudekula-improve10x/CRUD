@@ -18,10 +18,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class BaseAddEditSeriesActivity extends BaseActivity {
+
     protected EditText seriesIdTxt;
     protected EditText seriesNameTxt;
     protected EditText imageUrlTxt;
-    protected Series series;
     protected CrudService crudService;
 
     @Override
@@ -29,8 +29,8 @@ public class BaseAddEditSeriesActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_series);
         setUpApiService();
+        //change name initView to initViews
         initView();
-
     }
 
     private void setUpApiService() {

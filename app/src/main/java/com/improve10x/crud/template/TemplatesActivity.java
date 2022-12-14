@@ -1,4 +1,4 @@
-package com.improve10x.crud.templates;
+package com.improve10x.crud.template;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -67,7 +67,7 @@ public class TemplatesActivity extends BaseActivity {
             return super.onOptionsItemSelected(item);
         }
     }
-
+//change method name edit task to edit template
     private void ediTask(Template template) {
         Intent intent = new Intent(this, EditTemplateActivity.class);
         intent.putExtra(Constants.KEY_TEMPLATE, template);
@@ -88,14 +88,12 @@ public class TemplatesActivity extends BaseActivity {
             @Override
             public void onEdit(Template template) {
                 ediTask(template);
-
             }
         });
         templatesRv.setAdapter(templatesAdapter);
     }
 
     private void fetchTemplates() {
-
         Call<List<Template>> call = crudService.fetchTemplates();
         call.enqueue(new Callback<List<Template>>() {
             @Override
@@ -110,24 +108,20 @@ public class TemplatesActivity extends BaseActivity {
         });
 
     }
-
+//change method name delete templates to delete template
     private void deleteTemplates(String id) {
-
         Call<Void>call = crudService.deleteTemplates(id);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                showToast("Successfully delete the template ");
+                showToast("Successfully deleted the template ");
                 fetchTemplates();
-
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                showToast("Failed to delete templates ");
-
+                showToast("Failed to delete template ");
             }
         });
-
     }
 }

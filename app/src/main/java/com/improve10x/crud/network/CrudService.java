@@ -4,7 +4,7 @@ import com.improve10x.crud.Constants;
 import com.improve10x.crud.movies.Movie;
 import com.improve10x.crud.messages.Message;
 import com.improve10x.crud.series.Series;
-import com.improve10x.crud.templates.Template;
+import com.improve10x.crud.template.Template;
 
 import java.util.List;
 
@@ -18,40 +18,41 @@ import retrofit2.http.Path;
 
 public interface CrudService {
 
-    @GET(Constants.END_POINT)
+    @GET(Constants.MESSAGE_END_POINT)
     Call<List<Message>> fetchMessages();
 
-    @POST(Constants.END_POINT)
+    @POST(Constants.MESSAGE_END_POINT)
     Call<Message> createMessage (@Body Message message);
 
-    @DELETE(Constants.END_POINT + "/{id}")
+    @DELETE(Constants.MESSAGE_END_POINT + "/{id}")
     Call<Void> deleteMessages (@Path("id") String id);
 
-    @PUT(Constants.END_POINT + "/{id}")
+    @PUT(Constants.MESSAGE_END_POINT + "/{id}")
     Call<Void> editMessages (@Path("id") String id,@Body Message message);
 
-    @GET(Constants.END_POINT_TEMPLATE)
+    @GET(Constants.TEMPLATES_END_POINT)
     Call<List<Template>> fetchTemplates();
 
-    @POST(Constants.END_POINT_TEMPLATE)
+    @POST(Constants.TEMPLATES_END_POINT)
+    //change the name createTemplates to create template change three methods
     Call<Template> createTemplates (@Body Template template);
 
-    @DELETE(Constants.END_POINT_TEMPLATE + "/{id}")
+    @DELETE(Constants.TEMPLATES_END_POINT + "/{id}")
     Call<Void> deleteTemplates(@Path("id") String id);
 
-    @PUT(Constants.END_POINT_TEMPLATE + "/{id}")
+    @PUT(Constants.TEMPLATES_END_POINT + "/{id}")
     Call<Void> editTemplates(@Path("id") String id, @Body Template template);
 
-    @GET(Constants.END_POINT_SERIES)
-    Call<List<Series>> fetchSeries();
+    @GET(Constants.SERIES_END_POINT)
+    Call<List<Series>> fetchSeriesItems();
 
-    @POST(Constants.END_POINT_SERIES)
+    @POST(Constants.SERIES_END_POINT)
     Call<Series> createSeries (@Body Series series);
 
-    @DELETE(Constants.END_POINT_SERIES + "/{id}")
+    @DELETE(Constants.SERIES_END_POINT + "/{id}")
     Call<Void> deleteSeries(@Path("id") String id);
 
-    @PUT(Constants.END_POINT_SERIES + "/{id}")
+    @PUT(Constants.SERIES_END_POINT + "/{id}")
     Call<Void> editSeries(@Path("id") String id, @Body Series series);
 
     @GET(Constants.MOVIES_END_POINT)

@@ -1,4 +1,4 @@
-package com.improve10x.crud.templates;
+package com.improve10x.crud.template;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -14,11 +14,13 @@ import retrofit2.Response;
 
 public class EditTemplateActivity extends BaseAddEditTemplateActivity{
 
+    private Template template;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(getIntent().hasExtra(Constants.KEY_TEMPLATE)) {
-            getSupportActionBar().setTitle("EditTemplates");
+            getSupportActionBar().setTitle("Edit Template");
             template = (Template) getIntent().getSerializableExtra(Constants.KEY_TEMPLATE);
             showData();
         }
@@ -30,23 +32,19 @@ public class EditTemplateActivity extends BaseAddEditTemplateActivity{
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.edit) {
+        //change edit to add
+        if(item.getItemId() == R.id.save) {
             String message = messageTextTxt.getText().toString();
-            if(template == null) {
-
-            } else {
-                editTemplates(template.id, message);
-            }
+            editTemplates(template.id, message);
             return true;
         } else {
             return super.onOptionsItemSelected(item);
         }
     }
-
+//change method name editTemplates to editTemplate
     private void editTemplates(String id, String message) {
         template = new Template();
         template.messageText = message;
-
         Call<Void> call = crudService.editTemplates(id, template);
         call.enqueue(new Callback<Void>() {
             @Override

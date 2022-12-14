@@ -7,9 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.improve10x.crud.R;
-import com.improve10x.crud.dashboard.DashboardActivity;
 
-public class SplashScreen extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

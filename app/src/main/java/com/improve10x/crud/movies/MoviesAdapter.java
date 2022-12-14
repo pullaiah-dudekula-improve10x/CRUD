@@ -13,9 +13,9 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesViewHolder> {
+
     private List<Movie> movies;
     private OnItemActionClickListener onItemActionClickListener;
-
 
     public void setData(List<Movie> movieList) {
         movies = movieList;
@@ -37,8 +37,8 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MoviesViewHolder holder, int position) {
         Movie movie = movies.get(position);
-        Picasso.get().load(movie.imageUrl).into(holder.imageImg);
-        holder.titleTxt.setText(movie.name);
+        Picasso.get().load(movie.imageUrl).into(holder.moviesImg);
+        holder.moviesTxt.setText(movie.name);
         holder.deleteBtn.setOnClickListener(view -> {
             onItemActionClickListener.onDelete(movie.id);
         });

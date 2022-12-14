@@ -1,4 +1,4 @@
-package com.improve10x.crud.templates;
+package com.improve10x.crud.template;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -12,24 +12,28 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AddTemplateActivity extends BaseAddEditTemplateActivity{
+
+    private Template template;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setTitle("AddMessages");
+        getSupportActionBar().setTitle("Add Messages");
     }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.edit) {
+        //change id edit to add
+        if (item.getItemId() == R.id.save) {
             String message = messageTextTxt.getText().toString();
-            addTemplates(message);
+            addTemplate(message);
         return true;
     } else {
             return super.onOptionsItemSelected(item);
         }
     }
 
-
-    private void addTemplates(String messageText) {
+    private void addTemplate(String messageText) {
         template = new Template();
         template.messageText = messageText;
 
@@ -44,7 +48,6 @@ public class AddTemplateActivity extends BaseAddEditTemplateActivity{
             @Override
             public void onFailure(Call<Template> call, Throwable t) {
                 showToast("Failed to add template");
-
             }
         });
     }

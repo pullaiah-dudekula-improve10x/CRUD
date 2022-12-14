@@ -16,6 +16,7 @@ import com.improve10x.crud.series.Series;
 import java.util.List;
 
 public class CustomSeriesAdapter extends ArrayAdapter<Series> {
+
     public CustomSeriesAdapter(@NonNull Context context, int resource, @NonNull List<Series> objects) {
         super(context, resource, objects);
     }
@@ -23,22 +24,20 @@ public class CustomSeriesAdapter extends ArrayAdapter<Series> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.series_drop_down,parent,false);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.series_drop_down,parent, false);
         Series series = getItem(position);
         TextView titleTextTxt = view.findViewById(R.id.title_text_txt);
         titleTextTxt.setText(series.seriesId + " - " + series.title);
         return view;
-
     }
 
     @Override
     public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.series_drop_down,parent,false);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.series_drop_down, parent, false);
         Series series = getItem(position);
         TextView titleTextTxt = view.findViewById(R.id.title_text_txt);
         titleTextTxt.setText(series.seriesId + " - " + series.title);
         return view;
-
     }
 }
 

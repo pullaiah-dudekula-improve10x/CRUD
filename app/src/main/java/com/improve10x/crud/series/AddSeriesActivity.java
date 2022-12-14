@@ -12,6 +12,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AddSeriesActivity extends BaseAddEditSeriesActivity{
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,20 +21,20 @@ public class AddSeriesActivity extends BaseAddEditSeriesActivity{
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        //change here edit to save
         if(item.getItemId() == R.id.edit) {
             String seriesId = seriesIdTxt.getText().toString();
             String name = seriesNameTxt.getText().toString();
             String imageUrl = imageUrlTxt.getText().toString();
             addSeries(seriesId, name, imageUrl);
             return true;
-
         } else {
             return  super.onOptionsItemSelected(item);
         }
     }
 
     private void addSeries (String seriesId, String seriesName, String imageUrl) {
-        series = new Series();
+        Series series = new Series();
         series.seriesId = seriesId;
         series.title = seriesName;
         series.imageUrl = imageUrl;
@@ -44,13 +45,11 @@ public class AddSeriesActivity extends BaseAddEditSeriesActivity{
             public void onResponse(Call<Series> call, Response<Series> response) {
                 showToast("Successfully added the series");
                 finish();
-
             }
 
             @Override
             public void onFailure(Call<Series> call, Throwable t) {
                 showToast("Failed to add the series");
-
             }
         });
     }

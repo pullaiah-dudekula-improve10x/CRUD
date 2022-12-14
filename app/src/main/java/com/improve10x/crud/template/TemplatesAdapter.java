@@ -1,4 +1,4 @@
-package com.improve10x.crud.templates;
+package com.improve10x.crud.template;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,14 +36,13 @@ public class TemplatesAdapter extends RecyclerView.Adapter<TemplatesViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull TemplatesViewHolder holder, int position) {
         Template template = templates.get(position);
-        holder.messagesTextTxt.setText(template.messageText);
+        holder.messageTextTxt.setText(template.messageText);
         holder.deleteBtn.setOnClickListener(view -> {
             onItemActionClickListener.onDelete(template.id);
         });
         holder.itemView.setOnClickListener(view -> {
             onItemActionClickListener.onEdit(template);
         });
-
     }
 
     @Override

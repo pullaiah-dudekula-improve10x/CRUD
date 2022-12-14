@@ -23,11 +23,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MessagesActivity extends BaseActivity {
+
     public ArrayList<Message> messageList = new ArrayList<>();
     private MessagesAdapter messagesAdapter;
     private RecyclerView messagesRv;
     private CrudService crudService;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,7 @@ public class MessagesActivity extends BaseActivity {
         setContentView(R.layout.activity_messages);
         log("onCreate");
         getSupportActionBar().setTitle("Messages");
+        //chane u to lowercase
         setUpMessagesRv();
         setUpApiService();
     }
@@ -60,19 +61,18 @@ public class MessagesActivity extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.add) {
-            Intent intent = new Intent(this, AddMessagesActivity.class);
+            Intent intent = new Intent(this, AddMessageActivity.class);
             startActivity(intent);
             return true;
         } else {
             return super.onOptionsItemSelected(item);
         }
     }
-
+//here change editTask to edit message
     private void editTask(Message message) {
         Intent intent = new Intent(this, EditMessageActivity.class);
         intent.putExtra(Constants.KEY_MESSAGE, message);
         startActivity(intent);
-
     }
 
     private void setUpMessagesRv() {
@@ -83,13 +83,12 @@ public class MessagesActivity extends BaseActivity {
         messagesAdapter.setOnItemActionClickListener(new onItemActionClickListener() {
             @Override
             public void onDelete(String id) {
-                deleteMessages(id);
+                deleteMessage(id);
             }
 
             @Override
             public void onEdit(Message message) {
                 editTask(message);
-
             }
         });
         messagesRv.setAdapter(messagesAdapter);
@@ -103,18 +102,16 @@ public class MessagesActivity extends BaseActivity {
             public void onResponse(Call<List<Message>> call, Response<List<Message>> response) {
                 List<Message> messageList = response.body();
                 messagesAdapter.setData(messageList);
-
-
             }
 
             @Override
             public void onFailure(Call<List<Message>> call, Throwable t) {
-
+                //show toast here
             }
         });
     }
 
-    private void deleteMessages(String id) {
+    private void deleteMessage(String id) {
 
         Call<Void> call = crudService.deleteMessages(id);
         call.enqueue(new Callback<Void>() {
@@ -127,10 +124,7 @@ public class MessagesActivity extends BaseActivity {
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                showToast("failed to delete the message");
-
             }
         });
-
     }
-
 }
