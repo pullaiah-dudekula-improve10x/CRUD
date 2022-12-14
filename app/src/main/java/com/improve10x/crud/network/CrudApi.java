@@ -1,4 +1,4 @@
-package com.improve10x.crud.messages.network;
+package com.improve10x.crud.network;
 
 import com.improve10x.crud.Constants;
 

@@ -36,7 +36,6 @@ public class MoviesActivity extends BaseActivity {
         setupApiService();
     }
 
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -46,7 +45,6 @@ public class MoviesActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //change movieMenu to moviesMenu
         getMenuInflater().inflate(R.menu.movie_menu, menu);
         return true;
     }
@@ -82,7 +80,6 @@ public class MoviesActivity extends BaseActivity {
     }
 
     private void fetchMovies() {
-
         Call<List<Movie>>call = crudService.fetchMovies();
         call.enqueue(new Callback<List<Movie>>() {
             @Override

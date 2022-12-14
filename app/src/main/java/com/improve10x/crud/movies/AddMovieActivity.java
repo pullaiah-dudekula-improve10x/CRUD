@@ -14,6 +14,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AddMovieActivity extends BaseAddEditMovieActivity{
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +42,7 @@ public class AddMovieActivity extends BaseAddEditMovieActivity{
         movie.movieId = movieId;
         movie.seriesId = seriesId;
         movie.imageUrl = imageUrl;
-        // here change name to movieName
-        movie.name = title;
+        movie.movieName = title;
         movie.description = description;
 
         Call<Movie> call = crudService.createMovie(movie);

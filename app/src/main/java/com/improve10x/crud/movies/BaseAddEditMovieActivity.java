@@ -32,11 +32,12 @@ public class BaseAddEditMovieActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_movie);
+        //todo ; change initValue to initViews
         initValue();
-        //here change name to setupSeriesListSp
+        // todo ; here change name to setupSeriesListSp
         setUpSeriesSp();
         log("onCreate");
-        //here change name to fetchSeriesList
+        // todo ; here change name to fetchSeriesList
         fetchSeries();
     }
 
@@ -79,7 +80,7 @@ public class BaseAddEditMovieActivity extends BaseActivity {
 
     protected void showData() {
         movieIdTxt.setText(movie.movieId);
-        movieNameTxt.setText(movie.name);
+        movieNameTxt.setText(movie.movieName);
         movieImageUrlTxt.setText(movie.imageUrl);;
         movieDescriptionTxt.setText(movie.description);
         for (int i = 0; i<customSeriesAdapter.getCount(); i++) {

@@ -12,6 +12,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AddMessageActivity extends BaseAddEditMessagesActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,19 +21,19 @@ public class AddMessageActivity extends BaseAddEditMessagesActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        //change id edit to add
+        //TODO : change id edit to add
         if (item.getItemId() == R.id.save) {
             String name = this.nameTxt.getText().toString();
             String phoneNumber = this.phoneNumberTxt.getText().toString();
             String message = this.messageTextTxt.getText().toString();
-                addMessages(name, phoneNumber, message);
+                addMessage(name, phoneNumber, message);
                 return true;
             } else {
             return super.onOptionsItemSelected(item);
         }
     }
 
-    private void addMessages(String name, String phoneNumber, String messageText) {
+    private void addMessage(String name, String phoneNumber, String messageText) {
         messageList = new Message();
         messageList.name = name;
         messageList.phoneNumber = phoneNumber;

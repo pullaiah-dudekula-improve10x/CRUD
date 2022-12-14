@@ -1,4 +1,4 @@
-package com.improve10x.crud.messages.network;
+package com.improve10x.crud.network;
 
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.movies.Movie;
@@ -45,7 +45,7 @@ public interface CrudService {
 
     @GET(Constants.SERIES_END_POINT)
     Call<List<Series>> fetchSeriesItems();
-
+// todo ; here we change series to seriesItem
     @POST(Constants.SERIES_END_POINT)
     Call<Series> createSeries (@Body Series series);
 

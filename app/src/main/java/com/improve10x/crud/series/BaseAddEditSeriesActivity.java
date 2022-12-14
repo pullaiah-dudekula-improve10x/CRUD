@@ -6,28 +6,21 @@ import android.widget.EditText;
 
 import com.improve10x.crud.R;
 import com.improve10x.crud.base.BaseActivity;
-import com.improve10x.crud.messages.network.CrudApi;
-import com.improve10x.crud.messages.network.CrudService;
-
+import com.improve10x.crud.network.CrudApi;
+import com.improve10x.crud.network.CrudService;
+// todo ; change class name BaseAddEditSeriesActivity to BaseAddEditSeriesItemsActivity
 public class BaseAddEditSeriesActivity extends BaseActivity {
 
     protected EditText seriesIdTxt;
     protected EditText seriesNameTxt;
     protected EditText imageUrlTxt;
-    protected CrudService crudService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_series);
-        setUpApiService();
-        //change name initView to initViews
+        // todo ; change name initView to initViews
         initView();
-    }
-
-    private void setUpApiService() {
-        CrudApi crudApi = new CrudApi();
-        crudService = crudApi.createCrudService();
     }
 
     private void initView() {
@@ -41,6 +34,4 @@ public class BaseAddEditSeriesActivity extends BaseActivity {
         getMenuInflater().inflate(R.menu.add_edit_series_menu, menu);
         return true;
     }
-
-
 }

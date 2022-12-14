@@ -60,7 +60,7 @@ public class MessagesActivity extends BaseActivity {
             return super.onOptionsItemSelected(item);
         }
     }
-//here change editTask to edit message
+// todo ; here change editTask to edit message
     private void editTask(Message message) {
         Intent intent = new Intent(this, EditMessageActivity.class);
         intent.putExtra(Constants.KEY_MESSAGE, message);
@@ -87,7 +87,6 @@ public class MessagesActivity extends BaseActivity {
     }
 
     private void fetchMessages() {
-
         Call<List<Message>>call = crudService.fetchMessages();
         call.enqueue(new Callback<List<Message>>() {
             @Override
@@ -98,13 +97,12 @@ public class MessagesActivity extends BaseActivity {
 
             @Override
             public void onFailure(Call<List<Message>> call, Throwable t) {
-                //show toast here
+                showToast("Failed to load FetchMessages");
             }
         });
     }
 
     private void deleteMessage(String id) {
-
         Call<Void> call = crudService.deleteMessages(id);
         call.enqueue(new Callback<Void>() {
             @Override

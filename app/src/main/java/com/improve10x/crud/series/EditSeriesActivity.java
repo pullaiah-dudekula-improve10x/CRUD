@@ -13,7 +13,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class EditSeriesActivity extends BaseAddEditSeriesActivity {
-
+    // todo ; change class EditSeriesActivity to EditSeriesItemActivity
     private Series series;
 
     @Override
@@ -22,11 +22,11 @@ public class EditSeriesActivity extends BaseAddEditSeriesActivity {
         if (getIntent().hasExtra(Constants.KEY_SERIES)) {
             getSupportActionBar().setTitle("Edit Series");
             series = (Series) getIntent().getSerializableExtra(Constants.KEY_SERIES);
-            showData();
+            showMessage();
         }
     }
 
-    private void showData() {
+    private void showMessage() {
         seriesIdTxt.setText(series.seriesId);
         seriesNameTxt.setText(series.title);
         imageUrlTxt.setText(series.imageUrl);
@@ -41,18 +41,16 @@ public class EditSeriesActivity extends BaseAddEditSeriesActivity {
 
             updateSeries(series.id, seriesId, name, imageUrl);
             return true;
-
         } else {
             return super.onOptionsItemSelected(item);
         }
     }
-
+    // todo ; change method name  updateSeries to  updateSeriesItem
     private void updateSeries(String id, String seriesId, String seriesName, String imageUrl) {
         series = new Series();
         series.seriesId = seriesId;
         series.title = seriesName;
         series.imageUrl = imageUrl;
-
         Call<Void> call = crudService.editSeries(id, series);
         call.enqueue(new Callback<Void>() {
             @Override

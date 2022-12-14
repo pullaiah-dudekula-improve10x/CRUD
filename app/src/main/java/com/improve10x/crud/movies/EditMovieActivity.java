@@ -42,15 +42,14 @@ public class EditMovieActivity extends BaseAddEditMovieActivity{
             return super.onOptionsItemSelected(item);
         }
     }
-    //here change updateMovies to updateMovie
+    //todo ; here change updateMovies to updateMovie
     private void updateMovies(String id, String movieId, String seriesId, String imageUrl, String title, String description) {
         movie = new Movie();
         movie.movieId = movieId;
         movie.seriesId = seriesId;
         movie.imageUrl = imageUrl;
-        movie.name = title;
+        movie.movieName = title;
         movie.description = description;
-
         Call<Void> call = crudService.updateMovie(id, movie);
         call.enqueue(new Callback<Void>() {
             @Override

@@ -22,7 +22,7 @@ import retrofit2.Response;
 
 public class SeriesListActivity extends BaseActivity {
 
-    private ArrayList<Series> seriesList = new ArrayList<>();
+    private ArrayList<Series> series = new ArrayList<>();
     private RecyclerView seriesRv;
     private SeriesAdapter seriesAdapter;
 
@@ -65,12 +65,12 @@ public class SeriesListActivity extends BaseActivity {
         intent.putExtra(Constants.KEY_SERIES, series);
         startActivity(intent);
     }
-//change name setupSeriesRv to seriesListRv
+// todo ; change name setupSeriesRv to seriesListRv
     private void setUpSeriesRv() {
         seriesRv = findViewById(R.id.series_rv);
         seriesRv.setLayoutManager(new LinearLayoutManager(this));
         seriesAdapter = new SeriesAdapter();
-        seriesAdapter.setData(seriesList);
+        seriesAdapter.setData(series);
         seriesAdapter.setOnItemActionClickListener(new OnItemActionClickListener() {
             @Override
             public void onDelete(String id) {
@@ -84,7 +84,7 @@ public class SeriesListActivity extends BaseActivity {
         });
         seriesRv.setAdapter(seriesAdapter);
     }
-//change fetchSeries to seriesList
+// todo ; change fetchSeries to seriesList
     private void fetchSeries() {
         Call<List<Series>> call = crudService.fetchSeriesItems();
         call.enqueue(new Callback<List<Series>>() {
@@ -102,7 +102,6 @@ public class SeriesListActivity extends BaseActivity {
 
     }
     private void deleteSeries(String id) {
-
         Call<Void> call = crudService.deleteSeries(id);
         call.enqueue(new Callback<Void>() {
             @Override
@@ -116,6 +115,5 @@ public class SeriesListActivity extends BaseActivity {
                 showToast("Successfully delete the series");
             }
         });
-
     }
 }

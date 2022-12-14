@@ -12,7 +12,7 @@ public class BaseAddEditMessagesActivity extends BaseActivity {
     protected   EditText nameTxt;
     protected   EditText phoneNumberTxt;
     protected   EditText messageTextTxt;
-    //change the object name as message edit in declare
+    // todo ; change the object name as message edit in declare
     protected   Message messageList;
 
     @Override
@@ -25,20 +25,15 @@ public class BaseAddEditMessagesActivity extends BaseActivity {
 
     private void initValues() {
         nameTxt = findViewById(R.id.name_txt);
-        //change the id to phone_number_txt
+        // todo ; change the id to phone_number_txt
         phoneNumberTxt = findViewById(R.id.phonenumber_txt);
         messageTextTxt = findViewById(R.id.message_text_txt1);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //change the id as add_edit_message_menu
+        // todo ; change the id as add_edit_message_menu
         getMenuInflater().inflate(R.menu.addeditmessages_menu, menu);
         return true;
     }
-
-
-
-
-
 }

@@ -11,6 +11,6 @@ public class Movie implements Serializable {
     public String description;
     public String imageUrl;
     public String movieId;
-    public String name;
+    public String movieName;
     public String seriesId;
 }

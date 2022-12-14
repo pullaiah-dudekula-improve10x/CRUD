@@ -14,15 +14,15 @@ import java.util.List;
 
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesViewHolder> {
 
-    private List<Movie> movies;
+    private List<Movie> movie;
     private OnItemActionClickListener onItemActionClickListener;
-
-    public void setData(List<Movie> movieList) {
-        movies = movieList;
+// todo ; declare modifier as default
+     public void setData(List<Movie> movieList) {
+        movie = movieList;
         notifyDataSetChanged();
     }
 
-    public void setOnItemActionClickListener(OnItemActionClickListener actionClickListener) {
+    void setOnItemActionClickListener(OnItemActionClickListener actionClickListener) {
         onItemActionClickListener = actionClickListener;
     }
 
@@ -36,9 +36,9 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MoviesViewHolder holder, int position) {
-        Movie movie = movies.get(position);
+        Movie movie = this.movie.get(position);
         Picasso.get().load(movie.imageUrl).into(holder.moviesImg);
-        holder.moviesTxt.setText(movie.name);
+        holder.moviesTextTxt.setText(movie.movieName);
         holder.deleteBtn.setOnClickListener(view -> {
             onItemActionClickListener.onDelete(movie.id);
         });
@@ -49,6 +49,6 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesViewHolder> {
 
     @Override
     public int getItemCount() {
-        return movies.size();
+        return movie.size();
     }
 }

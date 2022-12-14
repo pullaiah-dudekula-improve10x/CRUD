@@ -9,7 +9,7 @@ import com.improve10x.crud.R;
 import com.improve10x.crud.base.BaseActivity;
 
 import java.util.ArrayList;
-
+// todo; change class name DashboardActivity to DashboardItemsActivity
 public class DashboardActivity extends BaseActivity {
 
     private ArrayList<Dashboard> dashboardItems;
@@ -22,10 +22,11 @@ public class DashboardActivity extends BaseActivity {
         setContentView(R.layout.activity_dashboard);
         log("onCreate");
         getSupportActionBar().setTitle("Dashboard");
+        //todo : here change  setUpData u should be in lower case in classes
         setUpData();
         setupDashboardRv();
     }
-
+//todo: change setupDashboardRv to setupDashboardItemsRv
     private void setupDashboardRv() {
         dashboardRv = findViewById(R.id.dashboard_rv);
         dashboardRv.setLayoutManager(new LinearLayoutManager(this));

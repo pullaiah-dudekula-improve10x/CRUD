@@ -10,7 +10,7 @@ import com.improve10x.crud.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
+// todo ; change class name AddSeriesActivity to AddSeriesItemActivity
 public class AddSeriesActivity extends BaseAddEditSeriesActivity{
 
     @Override
@@ -37,7 +37,6 @@ public class AddSeriesActivity extends BaseAddEditSeriesActivity{
         series.seriesId = seriesId;
         series.title = seriesName;
         series.imageUrl = imageUrl;
-
         Call<Series> call = crudService.createSeries(series);
         call.enqueue(new Callback<Series>() {
             @Override
@@ -52,5 +51,4 @@ public class AddSeriesActivity extends BaseAddEditSeriesActivity{
             }
         });
     }
-
 }

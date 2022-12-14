@@ -6,8 +6,6 @@ import android.widget.EditText;
 
 import com.improve10x.crud.R;
 import com.improve10x.crud.base.BaseActivity;
-import com.improve10x.crud.messages.network.CrudApi;
-import com.improve10x.crud.messages.network.CrudService;
 
 public class BaseAddEditTemplateActivity extends BaseActivity {
 
@@ -21,7 +19,7 @@ public class BaseAddEditTemplateActivity extends BaseActivity {
         initView();
     }
 
-//change name initView to initViews
+// todo ; change name initView to initViews
     private void initView() {
         messageTextTxt = findViewById(R.id.message_text_txt);
     }

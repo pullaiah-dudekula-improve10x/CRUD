@@ -14,12 +14,11 @@ public class MoviesViewHolder extends RecyclerView.ViewHolder {
 
     ImageView moviesImg;
     ImageButton deleteBtn;
-    TextView moviesTxt;
+    TextView moviesTextTxt;
     public MoviesViewHolder(@NonNull View itemView) {
         super(itemView);
-        //change the id names
-        moviesImg = itemView.findViewById(R.id.image_img);
+        moviesImg = itemView.findViewById(R.id.movies_img);
         deleteBtn = itemView.findViewById(R.id.delete_btn);
-        moviesTxt = itemView.findViewById(R.id.title_text_txt);
+        moviesTextTxt = itemView.findViewById(R.id.title_text_txt);
     }
 }

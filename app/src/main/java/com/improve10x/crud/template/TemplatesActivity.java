@@ -12,8 +12,6 @@ import android.view.MenuItem;
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
 import com.improve10x.crud.base.BaseActivity;
-import com.improve10x.crud.messages.network.CrudApi;
-import com.improve10x.crud.messages.network.CrudService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +58,7 @@ public class TemplatesActivity extends BaseActivity {
             return super.onOptionsItemSelected(item);
         }
     }
-//change method name edit task to edit template
+// todo ; change method name edit task to edit template
     private void ediTask(Template template) {
         Intent intent = new Intent(this, EditTemplateActivity.class);
         intent.putExtra(Constants.KEY_TEMPLATE, template);
@@ -101,7 +99,7 @@ public class TemplatesActivity extends BaseActivity {
         });
 
     }
-//change method name delete templates to delete template
+// todo ; change method name delete templates to delete template
     private void deleteTemplates(String id) {
         Call<Void>call = crudService.deleteTemplates(id);
         call.enqueue(new Callback<Void>() {

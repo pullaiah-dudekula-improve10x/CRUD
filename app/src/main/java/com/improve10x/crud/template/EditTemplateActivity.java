@@ -32,7 +32,6 @@ public class EditTemplateActivity extends BaseAddEditTemplateActivity{
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        //change edit to add
         if(item.getItemId() == R.id.save) {
             String message = messageTextTxt.getText().toString();
             editTemplates(template.id, message);
@@ -41,7 +40,7 @@ public class EditTemplateActivity extends BaseAddEditTemplateActivity{
             return super.onOptionsItemSelected(item);
         }
     }
-//change method name editTemplates to editTemplate
+// todo ; change method name editTemplates to editTemplate
     private void editTemplates(String id, String message) {
         template = new Template();
         template.messageText = message;

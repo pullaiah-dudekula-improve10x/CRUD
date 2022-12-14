@@ -7,8 +7,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.improve10x.crud.messages.network.CrudApi;
-import com.improve10x.crud.messages.network.CrudService;
+import com.improve10x.crud.network.CrudApi;
+import com.improve10x.crud.network.CrudService;
 
 public class BaseActivity extends AppCompatActivity {
     protected CrudService crudService;

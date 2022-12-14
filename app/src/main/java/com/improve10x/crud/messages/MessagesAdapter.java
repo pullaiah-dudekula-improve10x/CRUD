@@ -20,6 +20,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesViewHolder> {
         messageList = messages;
         notifyDataSetChanged();
     }
+    // todo ; here change public to default
     public void setOnItemActionClickListener(onItemActionClickListener actionClickListener) {
         onItemActionClickListener = actionClickListener;
     }

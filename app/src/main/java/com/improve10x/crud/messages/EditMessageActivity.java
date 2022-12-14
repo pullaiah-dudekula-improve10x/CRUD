@@ -28,7 +28,6 @@ public class EditMessageActivity extends BaseAddEditMessagesActivity{
         nameTxt.setText(messageList.name);
         phoneNumberTxt.setText(messageList.phoneNumber);
         messageTextTxt.setText(messageList.messageText);
-
     }
 
     @Override
