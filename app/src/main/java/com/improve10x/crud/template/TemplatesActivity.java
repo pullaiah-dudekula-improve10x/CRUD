@@ -12,8 +12,8 @@ import android.view.MenuItem;
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
 import com.improve10x.crud.base.BaseActivity;
-import com.improve10x.crud.network.CrudApi;
-import com.improve10x.crud.network.CrudService;
+import com.improve10x.crud.messages.network.CrudApi;
+import com.improve10x.crud.messages.network.CrudService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,6 @@ public class TemplatesActivity extends BaseActivity {
     private ArrayList<Template> templates = new ArrayList<>();
     private RecyclerView templatesRv;
     private TemplatesAdapter templatesAdapter;
-    private CrudService crudService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +35,6 @@ public class TemplatesActivity extends BaseActivity {
         log("onCreate");
         getSupportActionBar().setTitle("Templates");
         setUpTemplatesRv();
-        setUpApiService();
-    }
-
-    private void setUpApiService() {
-        CrudApi crudApi = new CrudApi();
-        crudService = crudApi.createCrudService();
     }
 
     @Override

@@ -6,27 +6,22 @@ import android.widget.EditText;
 
 import com.improve10x.crud.R;
 import com.improve10x.crud.base.BaseActivity;
-import com.improve10x.crud.network.CrudApi;
-import com.improve10x.crud.network.CrudService;
+import com.improve10x.crud.messages.network.CrudApi;
+import com.improve10x.crud.messages.network.CrudService;
 
 public class BaseAddEditTemplateActivity extends BaseActivity {
 
     protected EditText messageTextTxt;
-    protected CrudService crudService;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_templates);
-        setUpApiService();
         initView();
     }
 
-    private void setUpApiService() {
-        CrudApi crudApi = new CrudApi();
-        crudService = crudApi.createCrudService();
-    }
-//change name initView ti initViews
+//change name initView to initViews
     private void initView() {
         messageTextTxt = findViewById(R.id.message_text_txt);
     }

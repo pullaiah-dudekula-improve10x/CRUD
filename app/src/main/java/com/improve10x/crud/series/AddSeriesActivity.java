@@ -21,8 +21,7 @@ public class AddSeriesActivity extends BaseAddEditSeriesActivity{
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        //change here edit to save
-        if(item.getItemId() == R.id.edit) {
+        if(item.getItemId() == R.id.save) {
             String seriesId = seriesIdTxt.getText().toString();
             String name = seriesNameTxt.getText().toString();
             String imageUrl = imageUrlTxt.getText().toString();

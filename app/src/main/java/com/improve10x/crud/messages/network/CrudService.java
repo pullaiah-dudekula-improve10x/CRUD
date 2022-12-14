@@ -1,4 +1,4 @@
-package com.improve10x.crud.network;
+package com.improve10x.crud.messages.network;
 
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.movies.Movie;

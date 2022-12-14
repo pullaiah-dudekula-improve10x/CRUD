@@ -1,21 +1,13 @@
 package com.improve10x.crud.series;
 
-import androidx.annotation.NonNull;
-
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.EditText;
 
-import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
 import com.improve10x.crud.base.BaseActivity;
-import com.improve10x.crud.network.CrudApi;
-import com.improve10x.crud.network.CrudService;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import com.improve10x.crud.messages.network.CrudApi;
+import com.improve10x.crud.messages.network.CrudService;
 
 public class BaseAddEditSeriesActivity extends BaseActivity {
 

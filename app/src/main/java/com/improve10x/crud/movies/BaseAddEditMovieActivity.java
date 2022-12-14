@@ -7,8 +7,6 @@ import android.widget.Spinner;
 
 import com.improve10x.crud.R;
 import com.improve10x.crud.base.BaseActivity;
-import com.improve10x.crud.network.CrudApi;
-import com.improve10x.crud.network.CrudService;
 import com.improve10x.crud.series.Series;
 
 import java.util.ArrayList;
@@ -29,7 +27,6 @@ public class BaseAddEditMovieActivity extends BaseActivity {
     protected EditText movieDescriptionTxt;
     protected Spinner seriesSp;
     protected Series series;
-    protected CrudService crudService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +36,6 @@ public class BaseAddEditMovieActivity extends BaseActivity {
         //here change name to setupSeriesListSp
         setUpSeriesSp();
         log("onCreate");
-        setUpApiService();
         //here change name to fetchSeriesList
         fetchSeries();
     }
@@ -92,10 +88,5 @@ public class BaseAddEditMovieActivity extends BaseActivity {
                 seriesSp.setSelection(i);
             }
         }
-    }
-
-    private void setUpApiService() {
-        CrudApi crudApi = new CrudApi();
-        crudService = crudApi.createCrudService();
     }
 }

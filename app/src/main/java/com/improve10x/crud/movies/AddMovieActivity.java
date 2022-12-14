@@ -22,7 +22,6 @@ public class AddMovieActivity extends BaseAddEditMovieActivity{
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        //here change id edit to add
         if(item.getItemId() == R.id.save) {
             Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
             String movieId = movieIdTxt.getText().toString();

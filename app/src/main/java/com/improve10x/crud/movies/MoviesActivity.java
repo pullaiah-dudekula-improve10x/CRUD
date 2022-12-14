@@ -12,8 +12,6 @@ import android.view.MenuItem;
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
 import com.improve10x.crud.base.BaseActivity;
-import com.improve10x.crud.network.CrudApi;
-import com.improve10x.crud.network.CrudService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +26,6 @@ public class MoviesActivity extends BaseActivity {
     private RecyclerView moviesRv;
     private MoviesAdapter moviesAdapter;
     private Movie movie;
-    private CrudService crudService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +36,6 @@ public class MoviesActivity extends BaseActivity {
         setupApiService();
     }
 
-    private void setupApiService() {
-        CrudApi crudApi = new CrudApi();
-        crudService = crudApi.createCrudService();
-    }
 
     @Override
     protected void onResume() {

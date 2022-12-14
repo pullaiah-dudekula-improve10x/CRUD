@@ -12,8 +12,6 @@ import android.view.MenuItem;
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
 import com.improve10x.crud.base.BaseActivity;
-import com.improve10x.crud.network.CrudApi;
-import com.improve10x.crud.network.CrudService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +25,6 @@ public class SeriesListActivity extends BaseActivity {
     private ArrayList<Series> seriesList = new ArrayList<>();
     private RecyclerView seriesRv;
     private SeriesAdapter seriesAdapter;
-    private CrudService crudService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +33,8 @@ public class SeriesListActivity extends BaseActivity {
         getSupportActionBar().setTitle("Series List");
         log("onCreate");
         setUpSeriesRv();
-        setUpApiService();
     }
 
-    private void setUpApiService() {
-        CrudApi crudApi = new CrudApi();
-        crudService = crudApi.createCrudService();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

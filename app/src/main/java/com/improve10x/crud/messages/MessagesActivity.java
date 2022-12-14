@@ -12,8 +12,6 @@ import android.view.MenuItem;
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.R;
 import com.improve10x.crud.base.BaseActivity;
-import com.improve10x.crud.network.CrudApi;
-import com.improve10x.crud.network.CrudService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +25,6 @@ public class MessagesActivity extends BaseActivity {
     public ArrayList<Message> messageList = new ArrayList<>();
     private MessagesAdapter messagesAdapter;
     private RecyclerView messagesRv;
-    private CrudService crudService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +34,7 @@ public class MessagesActivity extends BaseActivity {
         getSupportActionBar().setTitle("Messages");
         //chane u to lowercase
         setUpMessagesRv();
-        setUpApiService();
+
     }
 
     @Override
@@ -45,11 +42,6 @@ public class MessagesActivity extends BaseActivity {
         super.onResume();
         fetchMessages();
         log("OnResume");
-    }
-
-    private void setUpApiService() {
-        CrudApi crudApi = new CrudApi();
-        crudService = crudApi.createCrudService();
     }
 
     @Override
