@@ -9,14 +9,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.improve10x.crud.R;
 
-public class DashboardViewHolder extends RecyclerView.ViewHolder {
+public class DashboardItemViewHolder extends RecyclerView.ViewHolder {
 //todo ; change imageImg to dashboardImg
-     ImageView imageImg;
+     ImageView dashboardImageImg;
      TextView titleTxt;
 
-    public DashboardViewHolder(@NonNull View itemView) {
+    public DashboardItemViewHolder(@NonNull View itemView) {
         super(itemView);
-        imageImg = itemView.findViewById(R.id.movies_img);
+        dashboardImageImg = itemView.findViewById(R.id.dashboard_image_img);
         titleTxt = itemView.findViewById(R.id.title_text_txt);
     }
 }

@@ -33,7 +33,6 @@ public class MoviesActivity extends BaseActivity {
         setContentView(R.layout.activity_movies);
         log("onCreate");
         setUpMoviesRv();
-        setupApiService();
     }
 
     @Override
