@@ -24,10 +24,10 @@ public class DashboardActivity extends BaseActivity {
         getSupportActionBar().setTitle("Dashboard");
         //todo : here change  setUpData u should be in lower case in classes
         setUpData();
-        setupDashboardRv();
+        setupDashboardItemsRv();
     }
-//todo: change setupDashboardRv to setupDashboardItemsRv
-    private void setupDashboardRv() {
+
+    private void setupDashboardItemsRv() {
         dashboardRv = findViewById(R.id.dashboard_rv);
         dashboardRv.setLayoutManager(new LinearLayoutManager(this));
         // todo  ; change  dashboardAdapter to dashboard items adapter
