@@ -32,8 +32,7 @@ public class BaseAddEditMovieActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_movie);
-        //todo ; change initValue to initViews
-        initValue();
+        initViews();
         // todo ; here change name to setupSeriesListSp
         setUpSeriesSp();
         log("onCreate");
@@ -64,8 +63,8 @@ public class BaseAddEditMovieActivity extends BaseActivity {
             }
         });
     }
-// todo ; here change name initValue to initViews
-    private void initValue() {
+
+    private void initViews() {
         seriesSp = findViewById(R.id.series_sp);
         movieIdTxt = findViewById(R.id.movie_id_txt);
         movieNameTxt = findViewById(R.id.movie_name_txt);
@@ -77,7 +76,7 @@ public class BaseAddEditMovieActivity extends BaseActivity {
         customSeriesAdapter = new CustomSeriesAdapter(this, android.R.layout.simple_list_item_1, seriesList);
         seriesSp.setAdapter(customSeriesAdapter);
     }
-// todo ; change showData to Show Movie
+
     protected void showData() {
         movieIdTxt.setText(movie.movieId);
         movieNameTxt.setText(movie.movieName);
