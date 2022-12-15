@@ -16,8 +16,8 @@ import com.improve10x.crud.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-// todo; change class name dashboard adapter dashboardItems adapter
-public class DashboardAdapter extends RecyclerView.Adapter<DashboardViewHolder> {
+
+public class DashboardItemsAdapter extends RecyclerView.Adapter<DashboardViewHolder> {
 
     private ArrayList<DashboardItem> dashboardItems;
 

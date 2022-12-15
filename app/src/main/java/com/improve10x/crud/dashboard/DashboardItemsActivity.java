@@ -14,7 +14,7 @@ public class DashboardItemsActivity extends BaseActivity {
 
     private ArrayList<DashboardItem> dashboardItems;
     private RecyclerView dashboardRv;
-    private DashboardAdapter dashboardAdapter;
+    private DashboardItemsAdapter dashboardAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class DashboardItemsActivity extends BaseActivity {
         dashboardRv = findViewById(R.id.dashboard_rv);
         dashboardRv.setLayoutManager(new LinearLayoutManager(this));
         // todo  ; change  dashboardAdapter to dashboard items adapter
-        dashboardAdapter = new DashboardAdapter();
+        dashboardAdapter = new DashboardItemsAdapter();
         dashboardAdapter.setData(dashboardItems);
         dashboardRv.setAdapter(dashboardAdapter);
     }
