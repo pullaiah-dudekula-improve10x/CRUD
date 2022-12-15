@@ -32,7 +32,7 @@ public class MessagesActivity extends BaseActivity {
         setContentView(R.layout.activity_messages);
         log("onCreate");
         getSupportActionBar().setTitle("Messages");
-        //chane u to lowercase
+        // todo ; chane u to lowercase
         setUpMessagesRv();
 
     }

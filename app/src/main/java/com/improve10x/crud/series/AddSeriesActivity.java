@@ -31,7 +31,7 @@ public class AddSeriesActivity extends BaseAddEditSeriesActivity{
             return  super.onOptionsItemSelected(item);
         }
     }
-
+//  todo ; change method addSeries to addSeriesItem
     private void addSeries (String seriesId, String seriesName, String imageUrl) {
         Series series = new Series();
         series.seriesId = seriesId;

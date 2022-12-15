@@ -21,7 +21,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MoviesActivity extends BaseActivity {
-
+// todo ;  change the object movies to movie
     private ArrayList<Movie> movies = new ArrayList<>();
     private RecyclerView moviesRv;
     private MoviesAdapter moviesAdapter;
@@ -90,7 +90,7 @@ public class MoviesActivity extends BaseActivity {
 
             @Override
             public void onFailure(Call<List<Movie>> call, Throwable t) {
-                //show toast here
+                // todo ; show toast here
             }
         });
     }

@@ -44,7 +44,7 @@ public class AddMovieActivity extends BaseAddEditMovieActivity{
         movie.imageUrl = imageUrl;
         movie.movieName = title;
         movie.description = description;
-
+// todo ; remove spcae here
         Call<Movie> call = crudService.createMovie(movie);
         call.enqueue(new Callback<Movie>() {
             @Override

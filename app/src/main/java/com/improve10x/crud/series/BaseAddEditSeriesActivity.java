@@ -22,7 +22,7 @@ public class BaseAddEditSeriesActivity extends BaseActivity {
         // todo ; change name initView to initViews
         initView();
     }
-
+// todo ; here change method initView to initViews
     private void initView() {
         seriesIdTxt = findViewById(R.id.seriesid_txt);
         seriesNameTxt = findViewById(R.id.seriesname_txt);

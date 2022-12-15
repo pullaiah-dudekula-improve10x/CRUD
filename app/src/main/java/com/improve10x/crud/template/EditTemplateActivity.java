@@ -25,7 +25,7 @@ public class EditTemplateActivity extends BaseAddEditTemplateActivity{
             showData();
         }
     }
-
+// todo ; change showdata to showTemplate
     private void showData() {
         messageTextTxt.setText(template.messageText);
     }

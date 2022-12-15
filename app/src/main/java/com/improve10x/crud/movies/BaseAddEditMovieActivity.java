@@ -64,7 +64,7 @@ public class BaseAddEditMovieActivity extends BaseActivity {
             }
         });
     }
-//here change name initValue to initViews
+// todo ; here change name initValue to initViews
     private void initValue() {
         seriesSp = findViewById(R.id.series_sp);
         movieIdTxt = findViewById(R.id.movie_id_txt);

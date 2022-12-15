@@ -12,10 +12,10 @@ import com.improve10x.crud.R;
 import java.util.List;
 
 public class MessagesAdapter extends RecyclerView.Adapter<MessagesViewHolder> {
-
+// todo ; change message list to message
     private List<Message> messageList;
     public com.improve10x.crud.messages.onItemActionClickListener onItemActionClickListener;
-
+// todo ;  here change public to default
     public void setData(List<Message> messages) {
         messageList = messages;
         notifyDataSetChanged();

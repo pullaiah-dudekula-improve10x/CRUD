@@ -21,7 +21,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SeriesListActivity extends BaseActivity {
-
+// todo ; change object series to seriesItems
     private ArrayList<Series> series = new ArrayList<>();
     private RecyclerView seriesRv;
     private SeriesAdapter seriesAdapter;
@@ -59,7 +59,7 @@ public class SeriesListActivity extends BaseActivity {
         fetchSeries();
         log("onResume");
     }
-
+    // todo ; change name editSeries to editSeries item
     private void editSeries(Series series) {
         Intent intent = new Intent(this, EditSeriesActivity.class);
         intent.putExtra(Constants.KEY_SERIES, series);
@@ -101,6 +101,7 @@ public class SeriesListActivity extends BaseActivity {
         });
 
     }
+    // todo ; change method delete series to delete series item
     private void deleteSeries(String id) {
         Call<Void> call = crudService.deleteSeries(id);
         call.enqueue(new Callback<Void>() {

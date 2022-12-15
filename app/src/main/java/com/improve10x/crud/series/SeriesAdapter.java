@@ -18,12 +18,12 @@ public class SeriesAdapter extends RecyclerView.Adapter<SeriesViewHolder> {
     private List<Series> seriesList;
     // todo ; use default instead of public
     public OnItemActionClickListener onItemActionClickListener;
-
+// todo ; use default instead of public
     public void setData(List<Series> series) {
         seriesList = series;
         notifyDataSetChanged();
     }
-
+// todo ;  use default instead of public
     public void setOnItemActionClickListener(OnItemActionClickListener actionClickListener) {
         onItemActionClickListener = actionClickListener;
     }
