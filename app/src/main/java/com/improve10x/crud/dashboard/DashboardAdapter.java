@@ -19,9 +19,9 @@ import java.util.ArrayList;
 // todo; change class name dashboard adapter dashboardItems adapter
 public class DashboardAdapter extends RecyclerView.Adapter<DashboardViewHolder> {
 
-    private ArrayList<Dashboard> dashboardItems;
+    private ArrayList<DashboardItem> dashboardItems;
 
-    public void setData(ArrayList<Dashboard> dashboardList) {
+    public void setData(ArrayList<DashboardItem> dashboardList) {
         dashboardItems = dashboardList;
         notifyDataSetChanged();
     }
@@ -36,7 +36,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull DashboardViewHolder holder, int position) {
-        Dashboard dashboard = dashboardItems.get(position);
+        DashboardItem dashboard = dashboardItems.get(position);
         Picasso.get().load(dashboard.imageUrl).into(holder.imageImg);
         holder.titleTxt.setText(dashboard.title);
         holder.itemView.setOnClickListener(view -> {

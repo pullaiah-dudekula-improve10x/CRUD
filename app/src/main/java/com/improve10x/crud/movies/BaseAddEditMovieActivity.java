@@ -77,7 +77,7 @@ public class BaseAddEditMovieActivity extends BaseActivity {
         customSeriesAdapter = new CustomSeriesAdapter(this, android.R.layout.simple_list_item_1, seriesList);
         seriesSp.setAdapter(customSeriesAdapter);
     }
-
+// todo ; change showData to Show Movie
     protected void showData() {
         movieIdTxt.setText(movie.movieId);
         movieNameTxt.setText(movie.movieName);

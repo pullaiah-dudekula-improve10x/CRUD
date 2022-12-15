@@ -19,7 +19,7 @@ public class BaseAddEditTemplateActivity extends BaseActivity {
         initView();
     }
 
-// todo ; change name initView to initViews
+// todo ; change method  name initView to initViews
     private void initView() {
         messageTextTxt = findViewById(R.id.message_text_txt);
     }

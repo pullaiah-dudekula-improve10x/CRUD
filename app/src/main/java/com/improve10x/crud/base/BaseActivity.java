@@ -26,7 +26,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void log(String message) {
         Log.i(this.getClass().getSimpleName(), message);
     }
-
+// todo ; change protected to private
     protected void setupApiService() {
         CrudApi crudApi = new CrudApi();
         crudService = crudApi.createCrudService();
