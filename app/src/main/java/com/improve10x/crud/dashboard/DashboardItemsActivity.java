@@ -22,8 +22,7 @@ public class DashboardItemsActivity extends BaseActivity {
         setContentView(R.layout.activity_dashboard);
         log("onCreate");
         getSupportActionBar().setTitle("Dashboard");
-        //todo : here change  setUpData u should be in lower case in classes
-        setUpData();
+        setupData();
         setupDashboardItemsRv();
     }
 
@@ -36,7 +35,7 @@ public class DashboardItemsActivity extends BaseActivity {
         dashboardRv.setAdapter(dashboardAdapter);
     }
 
-    private void setUpData() {
+    private void setupData() {
         dashboardItems = new ArrayList<>();
         DashboardItem messages = new DashboardItem();
         messages.imageUrl = "https://static.vecteezy.com/system/resources/previews/000/338/561/original/vector-message-icon.jpg";
