@@ -36,8 +36,7 @@ public class BaseAddEditMovieActivity extends BaseActivity {
         // todo ; here change name to setupSeriesListSp
         setUpSeriesSp();
         log("onCreate");
-        // todo ; here change name to fetchSeriesList
-        fetchSeries();
+        fetchSeriesItems();
     }
 
     @Override
@@ -46,7 +45,7 @@ public class BaseAddEditMovieActivity extends BaseActivity {
         return true;
     }
 
-    private void fetchSeries() {
+    private void fetchSeriesItems() {
         Call<List<Series>> call = crudService.fetchSeriesItems();
         call.enqueue(new Callback<List<Series>>() {
             @Override
