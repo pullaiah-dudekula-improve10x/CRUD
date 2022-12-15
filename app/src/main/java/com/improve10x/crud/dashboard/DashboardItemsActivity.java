@@ -9,8 +9,8 @@ import com.improve10x.crud.R;
 import com.improve10x.crud.base.BaseActivity;
 
 import java.util.ArrayList;
-// todo; change class name DashboardActivity to DashboardItemsActivity
-public class DashboardActivity extends BaseActivity {
+
+public class DashboardItemsActivity extends BaseActivity {
 
     private ArrayList<DashboardItem> dashboardItems;
     private RecyclerView dashboardRv;
