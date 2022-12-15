@@ -32,7 +32,7 @@ public class BaseAddEditMessagesActivity extends BaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // todo ; change the id as add_edit_message_menu
-        getMenuInflater().inflate(R.menu.addeditmessages_menu, menu);
+        getMenuInflater().inflate(R.menu.add_edit_messages_menu, menu);
         return true;
     }
 }
