@@ -12,7 +12,7 @@ import java.util.ArrayList;
 // todo; change class name DashboardActivity to DashboardItemsActivity
 public class DashboardActivity extends BaseActivity {
 
-    private ArrayList<Dashboard> dashboardItems;
+    private ArrayList<DashboardItem> dashboardItems;
     private RecyclerView dashboardRv;
     private DashboardAdapter dashboardAdapter;
 
@@ -30,6 +30,7 @@ public class DashboardActivity extends BaseActivity {
     private void setupDashboardRv() {
         dashboardRv = findViewById(R.id.dashboard_rv);
         dashboardRv.setLayoutManager(new LinearLayoutManager(this));
+        // todo  ; change  dashboardAdapter to dashboard items adapter
         dashboardAdapter = new DashboardAdapter();
         dashboardAdapter.setData(dashboardItems);
         dashboardRv.setAdapter(dashboardAdapter);
@@ -37,22 +38,22 @@ public class DashboardActivity extends BaseActivity {
 
     private void setUpData() {
         dashboardItems = new ArrayList<>();
-        Dashboard messages = new Dashboard();
+        DashboardItem messages = new DashboardItem();
         messages.imageUrl = "https://static.vecteezy.com/system/resources/previews/000/338/561/original/vector-message-icon.jpg";
         messages.title = "Messages";
         dashboardItems.add(messages);
 
-        Dashboard templates = new Dashboard();
+        DashboardItem templates = new DashboardItem();
         templates.imageUrl = "https://static.vecteezy.com/system/resources/previews/000/331/303/original/vector-message-icon.jpg";
         templates.title = "Templates";
         dashboardItems.add(templates);
 
-        Dashboard series = new Dashboard();
+        DashboardItem series = new DashboardItem();
         series.imageUrl = "https://i.ytimg.com/vi/faeP56TY1z4/maxresdefault.jpg";
         series.title = "Series";
         dashboardItems.add(series);
 
-        Dashboard movies = new Dashboard();
+        DashboardItem movies = new DashboardItem();
         movies.imageUrl = "https://tse4.mm.bing.net/th?id=OIP.Fswmb62BFVQukj5U-HFXrAHaEK&pid=Api&P=0";
         movies.title = "Movies";
         dashboardItems.add(movies);

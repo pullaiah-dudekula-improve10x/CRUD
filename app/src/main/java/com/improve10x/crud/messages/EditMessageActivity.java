@@ -23,7 +23,7 @@ public class EditMessageActivity extends BaseAddEditMessagesActivity{
             showData();
         }
     }
-
+// todo ; change showdata to showMessage
     private void showData() {
         nameTxt.setText(messageList.name);
         phoneNumberTxt.setText(messageList.phoneNumber);

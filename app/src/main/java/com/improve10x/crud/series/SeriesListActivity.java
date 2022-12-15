@@ -59,13 +59,13 @@ public class SeriesListActivity extends BaseActivity {
         fetchSeries();
         log("onResume");
     }
-    // todo ; change name editSeries to editSeries item
+    // todo ; change  method name editSeries to editSeries item
     private void editSeries(Series series) {
         Intent intent = new Intent(this, EditSeriesActivity.class);
         intent.putExtra(Constants.KEY_SERIES, series);
         startActivity(intent);
     }
-// todo ; change name setupSeriesRv to seriesListRv
+// todo ; change method  name setupSeriesRv to seriesListRv
     private void setUpSeriesRv() {
         seriesRv = findViewById(R.id.series_rv);
         seriesRv.setLayoutManager(new LinearLayoutManager(this));
@@ -84,7 +84,7 @@ public class SeriesListActivity extends BaseActivity {
         });
         seriesRv.setAdapter(seriesAdapter);
     }
-// todo ; change fetchSeries to seriesList
+// todo ; change  method names fetchSeries to seriesItems
     private void fetchSeries() {
         Call<List<Series>> call = crudService.fetchSeriesItems();
         call.enqueue(new Callback<List<Series>>() {

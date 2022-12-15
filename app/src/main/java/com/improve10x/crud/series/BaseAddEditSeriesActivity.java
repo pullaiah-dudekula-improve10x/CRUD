@@ -19,7 +19,6 @@ public class BaseAddEditSeriesActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_series);
-        // todo ; change name initView to initViews
         initView();
     }
 // todo ; here change method initView to initViews
