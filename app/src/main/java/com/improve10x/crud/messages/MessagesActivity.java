@@ -32,8 +32,7 @@ public class MessagesActivity extends BaseActivity {
         setContentView(R.layout.activity_messages);
         log("onCreate");
         getSupportActionBar().setTitle("Messages");
-        // todo ; chane u to lowercase
-        setUpMessagesRv();
+        setupMessagesRv();
 
     }
 
@@ -60,14 +59,14 @@ public class MessagesActivity extends BaseActivity {
             return super.onOptionsItemSelected(item);
         }
     }
-// todo ; here change editTask to edit message
-    private void editTask(Message message) {
+
+    private void editMessage(Message message) {
         Intent intent = new Intent(this, EditMessageActivity.class);
         intent.putExtra(Constants.KEY_MESSAGE, message);
         startActivity(intent);
     }
 
-    private void setUpMessagesRv() {
+    private void setupMessagesRv() {
         messagesRv = findViewById(R.id.messages_rv);
         messagesRv.setLayoutManager(new LinearLayoutManager(this));
         messagesAdapter = new MessagesAdapter();
@@ -80,7 +79,7 @@ public class MessagesActivity extends BaseActivity {
 
             @Override
             public void onEdit(Message message) {
-                editTask(message);
+                editMessage(message);
             }
         });
         messagesRv.setAdapter(messagesAdapter);
