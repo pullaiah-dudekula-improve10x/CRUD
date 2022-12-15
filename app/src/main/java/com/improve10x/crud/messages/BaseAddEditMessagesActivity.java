@@ -26,7 +26,7 @@ public class BaseAddEditMessagesActivity extends BaseActivity {
     private void initValues() {
         nameTxt = findViewById(R.id.name_txt);
         phoneNumberTxt = findViewById(R.id.phone_number_txt);
-        messageTextTxt = findViewById(R.id.message_text_txt1);
+        messageTextTxt = findViewById(R.id.message_text_txt);
     }
 
     @Override
