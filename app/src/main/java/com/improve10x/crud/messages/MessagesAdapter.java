@@ -15,13 +15,13 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesViewHolder> {
 
     private List<Message> messageList;
     public com.improve10x.crud.messages.onItemActionClickListener onItemActionClickListener;
-// todo ;  here change editTask to edit message
-    public void setData(List<Message> messages) {
+
+    void setData(List<Message> messages) {
         messageList = messages;
         notifyDataSetChanged();
     }
-    // todo ; here change public to default
-    public void setOnItemActionClickListener(onItemActionClickListener actionClickListener) {
+
+    void setOnItemActionClickListener(onItemActionClickListener actionClickListener) {
         onItemActionClickListener = actionClickListener;
     }
     @NonNull
