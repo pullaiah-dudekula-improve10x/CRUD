@@ -20,7 +20,7 @@
             app:srcCompat="@drawable/ic_baseline_close_24" />
 
         <ImageView
-            android:id="@+id/movies_img"
+            android:id="@+id/dashboard_image_img"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
