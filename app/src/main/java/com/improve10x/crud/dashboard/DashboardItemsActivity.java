@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class DashboardItemsActivity extends BaseActivity {
 
     private ArrayList<DashboardItem> dashboardItems;
-    private RecyclerView dashboardRv;
+    private RecyclerView dashboardItemsRv;
     private DashboardItemsAdapter dashboardAdapter;
 
     @Override
@@ -27,12 +27,11 @@ public class DashboardItemsActivity extends BaseActivity {
     }
 
     private void setupDashboardItemsRv() {
-        dashboardRv = findViewById(R.id.dashboard_rv);
-        dashboardRv.setLayoutManager(new LinearLayoutManager(this));
-        // todo  ; change  dashboardAdapter to dashboard items adapter
+        dashboardItemsRv = findViewById(R.id.dashboard_rv);
+        dashboardItemsRv.setLayoutManager(new LinearLayoutManager(this));
         dashboardAdapter = new DashboardItemsAdapter();
         dashboardAdapter.setData(dashboardItems);
-        dashboardRv.setAdapter(dashboardAdapter);
+        dashboardItemsRv.setAdapter(dashboardAdapter);
     }
 
     private void setupData() {
