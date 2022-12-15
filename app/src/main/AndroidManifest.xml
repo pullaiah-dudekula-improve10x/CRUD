@@ -61,7 +61,7 @@
             android:name=".messages.MessagesActivity"
             android:exported="false" />
         <activity
-            android:name=".dashboard.DashboardActivity"
+            android:name=".dashboard.DashboardItemsActivity"
             android:exported="false" />
         <activity
             android:name=".dashboard.SplashActivity"
