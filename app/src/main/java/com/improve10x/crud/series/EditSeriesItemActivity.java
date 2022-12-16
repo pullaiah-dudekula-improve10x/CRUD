@@ -39,14 +39,14 @@ public class EditSeriesItemActivity extends BaseAddEditSeriesItemsActivity {
             String name = seriesNameTxt.getText().toString();
             String imageUrl = imageUrlTxt.getText().toString();
 
-            updateSeries(series.id, seriesId, name, imageUrl);
+            updateSeriesItem(series.id, seriesId, name, imageUrl);
             return true;
         } else {
             return super.onOptionsItemSelected(item);
         }
     }
-    // todo ; change method name  updateSeries to  updateSeriesItem
-    private void updateSeries(String id, String seriesId, String seriesName, String imageUrl) {
+
+    private void updateSeriesItem(String id, String seriesId, String seriesName, String imageUrl) {
         series = new Series();
         series.seriesId = seriesId;
         series.title = seriesName;
