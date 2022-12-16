@@ -25,7 +25,7 @@ public class EditTemplateActivity extends BaseAddEditTemplateActivity{
             showData();
         }
     }
-// todo ; change showdata to showTemplate
+
     private void showData() {
         messageTextTxt.setText(template.messageText);
     }
@@ -34,14 +34,14 @@ public class EditTemplateActivity extends BaseAddEditTemplateActivity{
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.save) {
             String message = messageTextTxt.getText().toString();
-            editTemplates(template.id, message);
+            updateTemplate(template.id, message);
             return true;
         } else {
             return super.onOptionsItemSelected(item);
         }
     }
-// todo ; change method name editTemplates to editTemplate
-    private void editTemplates(String id, String message) {
+
+    private void updateTemplate(String id, String message) {
         template = new Template();
         template.messageText = message;
         Call<Void> call = crudService.updateTemplate(id, template);
