@@ -15,11 +15,11 @@ import java.util.List;
 public class SeriesAdapter extends RecyclerView.Adapter<SeriesViewHolder> {
     // todo ; change class name SeriesAdapter to seriesItems adapter
 
-    private List<Series> seriesList;
+    private List<SeriesItem> seriesList;
     // todo ; use default instead of public
     public OnItemActionClickListener onItemActionClickListener;
 // todo ; use default instead of public
-    public void setData(List<Series> series) {
+    public void setData(List<SeriesItem> series) {
         seriesList = series;
         notifyDataSetChanged();
     }
@@ -38,7 +38,7 @@ public class SeriesAdapter extends RecyclerView.Adapter<SeriesViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull SeriesViewHolder holder, int position) {
-        Series series = seriesList.get(position);
+        SeriesItem series = seriesList.get(position);
         Picasso.get().load(series.imageUrl).into(holder.imageImg);
         holder.titleTxt.setText(series.title);
         holder.seriesDeleteBtn.setOnClickListener(view -> {

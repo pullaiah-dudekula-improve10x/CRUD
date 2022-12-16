@@ -7,7 +7,7 @@ import android.widget.Spinner;
 
 import com.improve10x.crud.R;
 import com.improve10x.crud.base.BaseActivity;
-import com.improve10x.crud.series.Series;
+import com.improve10x.crud.series.SeriesItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,14 +19,14 @@ import retrofit2.Response;
 public class BaseAddEditMovieActivity extends BaseActivity {
 
     protected CustomSeriesAdapter customSeriesAdapter;
-    protected ArrayList<Series> seriesList = new ArrayList<>();
+    protected ArrayList<SeriesItem> seriesList = new ArrayList<>();
     protected Movie movie;
     protected EditText movieIdTxt;
     protected EditText movieNameTxt;
     protected EditText movieImageUrlTxt;
     protected EditText movieDescriptionTxt;
     protected Spinner seriesSp;
-    protected Series series;
+    protected SeriesItem series;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,18 +45,18 @@ public class BaseAddEditMovieActivity extends BaseActivity {
     }
 
     private void fetchSeriesItems() {
-        Call<List<Series>> call = crudService.fetchSeriesItems();
-        call.enqueue(new Callback<List<Series>>() {
+        Call<List<SeriesItem>> call = crudService.fetchSeriesItems();
+        call.enqueue(new Callback<List<SeriesItem>>() {
             @Override
-            public void onResponse(Call<List<Series>> call, Response<List<Series>> response) {
-                List<Series> seriesList1 = response.body();
+            public void onResponse(Call<List<SeriesItem>> call, Response<List<SeriesItem>> response) {
+                List<SeriesItem> seriesList1 = response.body();
                 customSeriesAdapter.addAll(seriesList1);
                 if(movie != null) {
                     showData();
                 }
             }
             @Override
-            public void onFailure(Call<List<Series>> call, Throwable t) {
+            public void onFailure(Call<List<SeriesItem>> call, Throwable t) {
 
             }
         });

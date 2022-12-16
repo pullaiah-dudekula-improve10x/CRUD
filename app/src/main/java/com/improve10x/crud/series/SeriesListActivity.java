@@ -22,7 +22,7 @@ import retrofit2.Response;
 
 public class SeriesListActivity extends BaseActivity {
 // todo ; change object series to seriesItems
-    private ArrayList<Series> series = new ArrayList<>();
+    private ArrayList<SeriesItem> series = new ArrayList<>();
     private RecyclerView seriesRv;
     private SeriesAdapter seriesAdapter;
 
@@ -60,7 +60,7 @@ public class SeriesListActivity extends BaseActivity {
         log("onResume");
     }
     // todo ; change  method name editSeries to editSeries item
-    private void editSeries(Series series) {
+    private void editSeries(SeriesItem series) {
         Intent intent = new Intent(this, EditSeriesItemActivity.class);
         intent.putExtra(Constants.KEY_SERIES, series);
         startActivity(intent);
@@ -78,7 +78,7 @@ public class SeriesListActivity extends BaseActivity {
             }
 
             @Override
-            public void onEdit(Series series) {
+            public void onEdit(SeriesItem series) {
                 editSeries(series);
             }
         });
@@ -86,16 +86,16 @@ public class SeriesListActivity extends BaseActivity {
     }
 // todo ; change  method names fetchSeries to seriesItems
     private void fetchSeries() {
-        Call<List<Series>> call = crudService.fetchSeriesItems();
-        call.enqueue(new Callback<List<Series>>() {
+        Call<List<SeriesItem>> call = crudService.fetchSeriesItems();
+        call.enqueue(new Callback<List<SeriesItem>>() {
             @Override
-            public void onResponse(Call<List<Series>> call, Response<List<Series>> response) {
-                List<Series> series = response.body();
+            public void onResponse(Call<List<SeriesItem>> call, Response<List<SeriesItem>> response) {
+                List<SeriesItem> series = response.body();
                 seriesAdapter.setData(series);
             }
 
             @Override
-            public void onFailure(Call<List<Series>> call, Throwable t) {
+            public void onFailure(Call<List<SeriesItem>> call, Throwable t) {
                 showToast("Failed to fetch Series");
             }
         });
