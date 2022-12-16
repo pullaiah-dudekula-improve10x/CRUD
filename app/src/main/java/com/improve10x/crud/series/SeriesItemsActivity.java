@@ -32,7 +32,7 @@ public class SeriesItemsActivity extends BaseActivity {
         setContentView(R.layout.activity_series);
         getSupportActionBar().setTitle("Series List");
         log("onCreate");
-        setUpSeriesItemsRv();
+        setupSeriesItemsRv();
     }
 
     @Override
@@ -65,7 +65,7 @@ public class SeriesItemsActivity extends BaseActivity {
         startActivity(intent);
     }
 
-    private void setUpSeriesItemsRv() {
+    private void setupSeriesItemsRv() {
         seriesRv = findViewById(R.id.series_rv);
         seriesRv.setLayoutManager(new LinearLayoutManager(this));
         seriesItemsAdapter = new SeriesItemsAdapter();
