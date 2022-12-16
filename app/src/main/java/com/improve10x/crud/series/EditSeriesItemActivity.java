@@ -14,22 +14,22 @@ import retrofit2.Response;
 
 public class EditSeriesItemActivity extends BaseAddEditSeriesItemsActivity {
 
-    private SeriesItem series;
+    private SeriesItem seriesItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getIntent().hasExtra(Constants.KEY_SERIES)) {
             getSupportActionBar().setTitle("Edit Series");
-            series = (SeriesItem) getIntent().getSerializableExtra(Constants.KEY_SERIES);
+            seriesItem = (SeriesItem) getIntent().getSerializableExtra(Constants.KEY_SERIES);
             showMessage();
         }
     }
 
     private void showMessage() {
-        seriesIdTxt.setText(series.seriesId);
-        seriesNameTxt.setText(series.title);
-        imageUrlTxt.setText(series.imageUrl);
+        seriesIdTxt.setText(seriesItem.seriesId);
+        seriesNameTxt.setText(seriesItem.title);
+        imageUrlTxt.setText(seriesItem.imageUrl);
     }
 
     @Override
@@ -39,7 +39,7 @@ public class EditSeriesItemActivity extends BaseAddEditSeriesItemsActivity {
             String name = seriesNameTxt.getText().toString();
             String imageUrl = imageUrlTxt.getText().toString();
 
-            updateSeriesItem(series.id, seriesId, name, imageUrl);
+            updateSeriesItem(seriesItem.id, seriesId, name, imageUrl);
             return true;
         } else {
             return super.onOptionsItemSelected(item);
@@ -47,11 +47,11 @@ public class EditSeriesItemActivity extends BaseAddEditSeriesItemsActivity {
     }
 
     private void updateSeriesItem(String id, String seriesId, String seriesName, String imageUrl) {
-        series = new SeriesItem();
-        series.seriesId = seriesId;
-        series.title = seriesName;
-        series.imageUrl = imageUrl;
-        Call<Void> call = crudService.updateSeriesItem(id, series);
+        seriesItem = new SeriesItem();
+        seriesItem.seriesId = seriesId;
+        seriesItem.title = seriesName;
+        seriesItem.imageUrl = imageUrl;
+        Call<Void> call = crudService.updateSeriesItem(id, seriesItem);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
