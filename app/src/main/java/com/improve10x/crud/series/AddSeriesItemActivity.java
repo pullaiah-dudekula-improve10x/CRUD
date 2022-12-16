@@ -10,7 +10,7 @@ import com.improve10x.crud.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-public class AddSeriesItemActivity extends BaseAddEditSeriesActivity{
+public class AddSeriesItemActivity extends BaseAddEditSeriesItemsActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

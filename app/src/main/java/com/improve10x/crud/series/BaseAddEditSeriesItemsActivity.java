@@ -6,10 +6,7 @@ import android.widget.EditText;
 
 import com.improve10x.crud.R;
 import com.improve10x.crud.base.BaseActivity;
-import com.improve10x.crud.network.CrudApi;
-import com.improve10x.crud.network.CrudService;
-// todo ; change class name BaseAddEditSeriesActivity to BaseAddEditSeriesItemsActivity
-public class BaseAddEditSeriesActivity extends BaseActivity {
+public class BaseAddEditSeriesItemsActivity extends BaseActivity {
 
     protected EditText seriesIdTxt;
     protected EditText seriesNameTxt;
