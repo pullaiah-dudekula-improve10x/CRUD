@@ -7,7 +7,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.improve10x.crud.R;
-import com.improve10x.crud.series.Series;
+import com.improve10x.crud.series.SeriesItem;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,7 +26,7 @@ public class AddMovieActivity extends BaseAddEditMovieActivity{
         if(item.getItemId() == R.id.save) {
             Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
             String movieId = movieIdTxt.getText().toString();
-            Series series = (Series) seriesSp.getSelectedItem();
+            SeriesItem series = (SeriesItem) seriesSp.getSelectedItem();
             String seriesId = series.seriesId;
             String imageUrl = movieImageUrlTxt.getText().toString();
             String movieName = movieNameTxt.getText().toString();

@@ -3,7 +3,7 @@ package com.improve10x.crud.network;
 import com.improve10x.crud.Constants;
 import com.improve10x.crud.movies.Movie;
 import com.improve10x.crud.messages.Message;
-import com.improve10x.crud.series.Series;
+import com.improve10x.crud.series.SeriesItem;
 import com.improve10x.crud.template.Template;
 
 import java.util.List;
@@ -43,16 +43,16 @@ public interface CrudService {
     Call<Void> updateTemplate(@Path("id") String id, @Body Template template);
 
     @GET(Constants.SERIES_END_POINT)
-    Call<List<Series>> fetchSeriesItems();
+    Call<List<SeriesItem>> fetchSeriesItems();
 
     @POST(Constants.SERIES_END_POINT)
-    Call<Series> createSeriesItem(@Body Series series);
+    Call<SeriesItem> createSeriesItem(@Body SeriesItem series);
 
     @DELETE(Constants.SERIES_END_POINT + "/{id}")
     Call<Void> deleteSeriesItem(@Path("id") String id);
 
     @PUT(Constants.SERIES_END_POINT + "/{id}")
-    Call<Void> updateSeriesItem(@Path("id") String id, @Body Series series);
+    Call<Void> updateSeriesItem(@Path("id") String id, @Body SeriesItem series);
 
     @GET(Constants.MOVIES_END_POINT)
     Call<List<Movie>> fetchMovies();

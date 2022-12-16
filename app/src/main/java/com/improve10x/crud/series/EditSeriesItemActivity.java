@@ -14,14 +14,14 @@ import retrofit2.Response;
 
 public class EditSeriesItemActivity extends BaseAddEditSeriesItemsActivity {
 
-    private Series series;
+    private SeriesItem series;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getIntent().hasExtra(Constants.KEY_SERIES)) {
             getSupportActionBar().setTitle("Edit Series");
-            series = (Series) getIntent().getSerializableExtra(Constants.KEY_SERIES);
+            series = (SeriesItem) getIntent().getSerializableExtra(Constants.KEY_SERIES);
             showMessage();
         }
     }
@@ -47,7 +47,7 @@ public class EditSeriesItemActivity extends BaseAddEditSeriesItemsActivity {
     }
 
     private void updateSeriesItem(String id, String seriesId, String seriesName, String imageUrl) {
-        series = new Series();
+        series = new SeriesItem();
         series.seriesId = seriesId;
         series.title = seriesName;
         series.imageUrl = imageUrl;
