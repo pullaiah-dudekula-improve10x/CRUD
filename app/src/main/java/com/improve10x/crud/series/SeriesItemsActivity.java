@@ -20,7 +20,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SeriesListActivity extends BaseActivity {
+public class SeriesItemsActivity extends BaseActivity {
 
     private ArrayList<SeriesItem> seriesItems    = new ArrayList<>();
     private RecyclerView seriesRv;
@@ -58,8 +58,8 @@ public class SeriesListActivity extends BaseActivity {
         fetchSeries();
         log("onResume");
     }
-    // todo ; change  method name editSeries to editSeries item
-    private void editSeries(SeriesItem series) {
+
+    private void editSeriesItem(SeriesItem series) {
         Intent intent = new Intent(this, EditSeriesItemActivity.class);
         intent.putExtra(Constants.KEY_SERIES, series);
         startActivity(intent);
@@ -78,7 +78,7 @@ public class SeriesListActivity extends BaseActivity {
 
             @Override
             public void onEdit(SeriesItem series) {
-                editSeries(series);
+                editSeriesItem(series);
             }
         });
         seriesRv.setAdapter(seriesItemsAdapter);
