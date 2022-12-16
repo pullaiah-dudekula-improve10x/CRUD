@@ -89,7 +89,7 @@ public class MoviesActivity extends BaseActivity {
 
             @Override
             public void onFailure(Call<List<Movie>> call, Throwable t) {
-                // todo ; show toast here
+                showToast("Failed to load Fetch Movies");
             }
         });
     }
