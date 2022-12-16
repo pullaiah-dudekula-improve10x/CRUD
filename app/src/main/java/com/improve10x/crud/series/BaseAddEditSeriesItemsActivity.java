@@ -16,10 +16,10 @@ public class BaseAddEditSeriesItemsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_series);
-        initView();
+        initViews();
     }
-// todo ; here change method initView to initViews
-    private void initView() {
+
+    private void initViews() {
         seriesIdTxt = findViewById(R.id.seriesid_txt);
         seriesNameTxt = findViewById(R.id.seriesname_txt);
         imageUrlTxt = findViewById(R.id.imageurl_txt);
