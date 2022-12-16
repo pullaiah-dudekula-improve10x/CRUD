@@ -61,7 +61,7 @@ public class SeriesListActivity extends BaseActivity {
     }
     // todo ; change  method name editSeries to editSeries item
     private void editSeries(Series series) {
-        Intent intent = new Intent(this, EditSeriesActivity.class);
+        Intent intent = new Intent(this, EditSeriesItemActivity.class);
         intent.putExtra(Constants.KEY_SERIES, series);
         startActivity(intent);
     }
