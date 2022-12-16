@@ -16,11 +16,10 @@ public class BaseAddEditTemplateActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_templates);
-        initView();
+        initViews();
     }
 
-// todo ; change method  name initView to initViews
-    private void initView() {
+    private void initViews() {
         messageTextTxt = findViewById(R.id.message_text_txt);
     }
 
