@@ -12,19 +12,17 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class SeriesAdapter extends RecyclerView.Adapter<SeriesViewHolder> {
-    // todo ; change class name SeriesAdapter to seriesItems adapter
+public class SeriesItemsAdapter extends RecyclerView.Adapter<SeriesViewHolder> {
 
     private List<SeriesItem> seriesList;
-    // todo ; use default instead of public
-    public OnItemActionClickListener onItemActionClickListener;
-// todo ; use default instead of public
-    public void setData(List<SeriesItem> series) {
+    public  OnItemActionClickListener onItemActionClickListener;
+
+    void setData(List<SeriesItem> series) {
         seriesList = series;
         notifyDataSetChanged();
     }
-// todo ;  use default instead of public
-    public void setOnItemActionClickListener(OnItemActionClickListener actionClickListener) {
+
+    void setOnItemActionClickListener(OnItemActionClickListener actionClickListener) {
         onItemActionClickListener = actionClickListener;
     }
 
