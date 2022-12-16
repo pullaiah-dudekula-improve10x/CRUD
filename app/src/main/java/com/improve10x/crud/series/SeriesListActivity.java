@@ -103,7 +103,7 @@ public class SeriesListActivity extends BaseActivity {
     }
     // todo ; change method delete series to delete series item
     private void deleteSeries(String id) {
-        Call<Void> call = crudService.deleteSeries(id);
+        Call<Void> call = crudService.deleteSeriesItem(id);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {

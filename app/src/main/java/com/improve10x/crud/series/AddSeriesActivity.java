@@ -37,7 +37,7 @@ public class AddSeriesActivity extends BaseAddEditSeriesActivity{
         series.seriesId = seriesId;
         series.title = seriesName;
         series.imageUrl = imageUrl;
-        Call<Series> call = crudService.createSeries(series);
+        Call<Series> call = crudService.createSeriesItem(series);
         call.enqueue(new Callback<Series>() {
             @Override
             public void onResponse(Call<Series> call, Response<Series> response) {

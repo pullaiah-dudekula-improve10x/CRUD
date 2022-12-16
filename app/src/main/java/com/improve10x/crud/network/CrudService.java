@@ -44,15 +44,15 @@ public interface CrudService {
 
     @GET(Constants.SERIES_END_POINT)
     Call<List<Series>> fetchSeriesItems();
-// todo ; here we change series to seriesItem
+
     @POST(Constants.SERIES_END_POINT)
-    Call<Series> createSeries (@Body Series series);
-// todo ; here change delete series to delete series item
+    Call<Series> createSeriesItem(@Body Series series);
+
     @DELETE(Constants.SERIES_END_POINT + "/{id}")
-    Call<Void> deleteSeries(@Path("id") String id);
-//// todo ; here change edit series to update series item
+    Call<Void> deleteSeriesItem(@Path("id") String id);
+
     @PUT(Constants.SERIES_END_POINT + "/{id}")
-    Call<Void> editSeries(@Path("id") String id, @Body Series series);
+    Call<Void> updateSeriesItem(@Path("id") String id, @Body Series series);
 
     @GET(Constants.MOVIES_END_POINT)
     Call<List<Movie>> fetchMovies();
