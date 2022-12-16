@@ -10,8 +10,7 @@ import com.improve10x.crud.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-// todo ; change class name AddSeriesActivity to AddSeriesItemActivity
-public class AddSeriesActivity extends BaseAddEditSeriesActivity{
+public class AddSeriesItemActivity extends BaseAddEditSeriesActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
