@@ -21,10 +21,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SeriesListActivity extends BaseActivity {
-// todo ; change object series to seriesItems
-    private ArrayList<SeriesItem> series = new ArrayList<>();
+
+    private ArrayList<SeriesItem> seriesItems    = new ArrayList<>();
     private RecyclerView seriesRv;
-    private SeriesItemsAdapter seriesAdapter;
+    private SeriesItemsAdapter seriesItemsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,6 @@ public class SeriesListActivity extends BaseActivity {
         log("onCreate");
         setUpSeriesRv();
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -69,9 +68,9 @@ public class SeriesListActivity extends BaseActivity {
     private void setUpSeriesRv() {
         seriesRv = findViewById(R.id.series_rv);
         seriesRv.setLayoutManager(new LinearLayoutManager(this));
-        seriesAdapter = new SeriesItemsAdapter();
-        seriesAdapter.setData(series);
-        seriesAdapter.setOnItemActionClickListener(new OnItemActionClickListener() {
+        seriesItemsAdapter = new SeriesItemsAdapter();
+        seriesItemsAdapter.setData(seriesItems);
+        seriesItemsAdapter.setOnItemActionClickListener(new OnItemActionClickListener() {
             @Override
             public void onDelete(String id) {
                 deleteSeries(id);
@@ -82,7 +81,7 @@ public class SeriesListActivity extends BaseActivity {
                 editSeries(series);
             }
         });
-        seriesRv.setAdapter(seriesAdapter);
+        seriesRv.setAdapter(seriesItemsAdapter);
     }
 // todo ; change  method names fetchSeries to seriesItems
     private void fetchSeries() {
@@ -91,7 +90,7 @@ public class SeriesListActivity extends BaseActivity {
             @Override
             public void onResponse(Call<List<SeriesItem>> call, Response<List<SeriesItem>> response) {
                 List<SeriesItem> series = response.body();
-                seriesAdapter.setData(series);
+                seriesItemsAdapter.setData(series);
             }
 
             @Override
