@@ -34,14 +34,13 @@ public interface CrudService {
     Call<List<Template>> fetchTemplates();
 
     @POST(Constants.TEMPLATES_END_POINT)
-    // todo ; change the name createTemplates to create template change three methods
-    Call<Template> createTemplates (@Body Template template);
-    // todo ; change the name createTemplates to create template change three methods
+    Call<Template> createTemplate(@Body Template template);
+
     @DELETE(Constants.TEMPLATES_END_POINT + "/{id}")
-    Call<Void> deleteTemplates(@Path("id") String id);
-    // todo ; change the name createTemplates to create template change three methods
+    Call<Void> deleteTemplate(@Path("id") String id);
+
     @PUT(Constants.TEMPLATES_END_POINT + "/{id}")
-    Call<Void> editTemplates(@Path("id") String id, @Body Template template);
+    Call<Void> updateTemplate(@Path("id") String id, @Body Template template);
 
     @GET(Constants.SERIES_END_POINT)
     Call<List<Series>> fetchSeriesItems();
