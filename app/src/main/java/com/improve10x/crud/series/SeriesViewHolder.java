@@ -12,13 +12,13 @@ import com.improve10x.crud.R;
 
 public class SeriesViewHolder extends RecyclerView.ViewHolder {
 
-     ImageView seriesImg;
+     ImageView seriesItemImg;
      TextView titleTxt;
      ImageButton seriesDeleteBtn;
 
     public SeriesViewHolder(@NonNull View itemView) {
         super(itemView);
-        seriesImg = itemView.findViewById(R.id.movie_img);
+        seriesItemImg = itemView.findViewById(R.id.series_item_img);
         titleTxt = itemView.findViewById(R.id.title_text_txt);
         seriesDeleteBtn = itemView.findViewById(R.id.series_delete_btn);
     }
