@@ -55,7 +55,7 @@ public class SeriesItemsActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        fetchSeries();
+        fetchSeriesItems();
         log("onResume");
     }
 
@@ -83,8 +83,8 @@ public class SeriesItemsActivity extends BaseActivity {
         });
         seriesRv.setAdapter(seriesItemsAdapter);
     }
-// todo ; change  method names fetchSeries to seriesItems
-    private void fetchSeries() {
+
+    private void fetchSeriesItems() {
         Call<List<SeriesItem>> call = crudService.fetchSeriesItems();
         call.enqueue(new Callback<List<SeriesItem>>() {
             @Override
@@ -107,7 +107,7 @@ public class SeriesItemsActivity extends BaseActivity {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 showToast("Successfully delete the series");
-                fetchSeries();
+                fetchSeriesItems();
             }
 
             @Override
