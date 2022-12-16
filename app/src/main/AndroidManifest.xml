@@ -40,7 +40,7 @@
             android:name=".series.EditSeriesItemActivity"
             android:exported="false" />
         <activity
-            android:name=".series.SeriesListActivity"
+            android:name=".series.SeriesItemsActivity"
             android:exported="false" />
         <activity
             android:name=".template.AddTemplateActivity"
