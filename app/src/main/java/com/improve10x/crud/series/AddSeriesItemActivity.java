@@ -24,14 +24,14 @@ public class AddSeriesItemActivity extends BaseAddEditSeriesActivity{
             String seriesId = seriesIdTxt.getText().toString();
             String name = seriesNameTxt.getText().toString();
             String imageUrl = imageUrlTxt.getText().toString();
-            addSeries(seriesId, name, imageUrl);
+            addSeriesItem(seriesId, name, imageUrl);
             return true;
         } else {
             return  super.onOptionsItemSelected(item);
         }
     }
-//  todo ; change method addSeries to addSeriesItem
-    private void addSeries (String seriesId, String seriesName, String imageUrl) {
+
+    private void addSeriesItem(String seriesId, String seriesName, String imageUrl) {
         Series series = new Series();
         series.seriesId = seriesId;
         series.title = seriesName;
