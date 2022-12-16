@@ -35,7 +35,7 @@ public class AddTemplateActivity extends BaseAddEditTemplateActivity{
     private void addTemplate(String messageText) {
         template = new Template();
         template.messageText = messageText;
-        Call<Template> call = crudService.createTemplates(template);
+        Call<Template> call = crudService.createTemplate(template);
         call.enqueue(new Callback<Template>() {
             @Override
             public void onResponse(Call<Template> call, Response<Template> response) {

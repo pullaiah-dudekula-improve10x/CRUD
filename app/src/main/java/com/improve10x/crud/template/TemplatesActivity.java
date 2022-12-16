@@ -101,7 +101,7 @@ public class TemplatesActivity extends BaseActivity {
     }
 // todo ; change method name delete templates to delete template
     private void deleteTemplates(String id) {
-        Call<Void>call = crudService.deleteTemplates(id);
+        Call<Void>call = crudService.deleteTemplate(id);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
