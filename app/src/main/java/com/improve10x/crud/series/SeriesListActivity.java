@@ -24,7 +24,7 @@ public class SeriesListActivity extends BaseActivity {
 // todo ; change object series to seriesItems
     private ArrayList<SeriesItem> series = new ArrayList<>();
     private RecyclerView seriesRv;
-    private SeriesAdapter seriesAdapter;
+    private SeriesItemsAdapter seriesAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +69,7 @@ public class SeriesListActivity extends BaseActivity {
     private void setUpSeriesRv() {
         seriesRv = findViewById(R.id.series_rv);
         seriesRv.setLayoutManager(new LinearLayoutManager(this));
-        seriesAdapter = new SeriesAdapter();
+        seriesAdapter = new SeriesItemsAdapter();
         seriesAdapter.setData(series);
         seriesAdapter.setOnItemActionClickListener(new OnItemActionClickListener() {
             @Override
