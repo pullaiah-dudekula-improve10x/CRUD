@@ -73,7 +73,7 @@ public class SeriesItemsActivity extends BaseActivity {
         seriesItemsAdapter.setOnItemActionClickListener(new OnItemActionClickListener() {
             @Override
             public void onDelete(String id) {
-                deleteSeries(id);
+                deleteSeriesItem(id);
             }
 
             @Override
@@ -100,8 +100,8 @@ public class SeriesItemsActivity extends BaseActivity {
         });
 
     }
-    // todo ; change method delete series to delete series item
-    private void deleteSeries(String id) {
+
+    private void deleteSeriesItem(String id) {
         Call<Void> call = crudService.deleteSeriesItem(id);
         call.enqueue(new Callback<Void>() {
             @Override
