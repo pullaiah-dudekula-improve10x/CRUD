@@ -33,7 +33,7 @@ public class BaseAddEditMovieActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_edit_movie);
         initViews();
-        setUpSeriesItemsSp();
+        setupSeriesItemsSp();
         log("onCreate");
         fetchSeriesItems();
     }
@@ -70,7 +70,7 @@ public class BaseAddEditMovieActivity extends BaseActivity {
         movieDescriptionTxt = findViewById(R.id.description_txt);
     }
 
-    private void setUpSeriesItemsSp() {
+    private void setupSeriesItemsSp() {
         customSeriesAdapter = new CustomSeriesAdapter(this, android.R.layout.simple_list_item_1, seriesList);
         seriesSp.setAdapter(customSeriesAdapter);
     }
