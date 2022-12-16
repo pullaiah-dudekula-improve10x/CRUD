@@ -47,11 +47,11 @@ public class EditSeriesItemActivity extends BaseAddEditSeriesItemsActivity {
     }
 
     private void updateSeriesItem(String id, String seriesId, String seriesName, String imageUrl) {
-        seriesItem = new SeriesItem();
-        seriesItem.seriesId = seriesId;
-        seriesItem.title = seriesName;
-        seriesItem.imageUrl = imageUrl;
-        Call<Void> call = crudService.updateSeriesItem(id, seriesItem);
+       SeriesItem updatedSeriesItem = new SeriesItem();
+        updatedSeriesItem.seriesId = seriesId;
+        updatedSeriesItem.title = seriesName;
+        updatedSeriesItem.imageUrl = imageUrl;
+        Call<Void> call = crudService.updateSeriesItem(id, updatedSeriesItem);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
