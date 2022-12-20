@@ -58,8 +58,8 @@ public class TemplatesActivity extends BaseActivity {
             return super.onOptionsItemSelected(item);
         }
     }
-// todo ; change method name edit task to edit template
-    private void ediTask(Template template) {
+
+    private void ediTemplate(Template template) {
         Intent intent = new Intent(this, EditTemplateActivity.class);
         intent.putExtra(Constants.KEY_TEMPLATE, template);
         startActivity(intent);
@@ -78,7 +78,7 @@ public class TemplatesActivity extends BaseActivity {
 
             @Override
             public void onEdit(Template template) {
-                ediTask(template);
+                ediTemplate(template);
             }
         });
         templatesRv.setAdapter(templatesAdapter);
