@@ -13,7 +13,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class EditMessageActivity extends BaseAddEditMessagesActivity{
-    //declare here private Message message
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,19 +23,19 @@ public class EditMessageActivity extends BaseAddEditMessagesActivity{
             showData();
         }
     }
-// todo ; change showdata to showMessage
+
     private void showData() {
-        nameTxt.setText(messageList.name);
-        phoneNumberTxt.setText(messageList.phoneNumber);
-        messageTextTxt.setText(messageList.messageText);
+        binding.nameTxt.setText(messageList.name);
+        binding.phoneNumberTxt.setText(messageList.phoneNumber);
+        binding.messageTextTxt.setText(messageList.messageText);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.save) {
-            String name = this.nameTxt.getText().toString();
-            String phoneNumber = this.phoneNumberTxt.getText().toString();
-            String message = this.messageTextTxt.getText().toString();
+            String name = this.binding.nameTxt.getText().toString();
+            String phoneNumber = this.binding.phoneNumberTxt.getText().toString();
+            String message = this.binding.messageTextTxt.getText().toString();
             updateMessage(messageList.id, name, phoneNumber, message);
             return true;
         } else {
