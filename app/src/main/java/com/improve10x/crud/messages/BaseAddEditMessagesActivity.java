@@ -12,9 +12,6 @@ public class BaseAddEditMessagesActivity extends BaseActivity {
 
     protected ActivityAddEditMessagesBinding binding;
 
-    protected   EditText nameTxt;
-    protected   EditText phoneNumberTxt;
-    protected   EditText messageTextTxt;
     protected   Message messageList;
 
     @Override
@@ -23,13 +20,6 @@ public class BaseAddEditMessagesActivity extends BaseActivity {
         binding = ActivityAddEditMessagesBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().setTitle("Messages");
-        initValues();
-    }
-
-    private void initValues() {
-        nameTxt = findViewById(R.id.name_txt);
-        phoneNumberTxt = findViewById(R.id.phone_number_txt);
-        messageTextTxt = findViewById(R.id.message_text_txt);
     }
 
     @Override

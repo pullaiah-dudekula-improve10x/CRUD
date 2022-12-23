@@ -33,7 +33,6 @@ public class MessagesActivity extends BaseActivity {
         log("onCreate");
         getSupportActionBar().setTitle("Messages");
         setupMessagesRv();
-
     }
 
     @Override
