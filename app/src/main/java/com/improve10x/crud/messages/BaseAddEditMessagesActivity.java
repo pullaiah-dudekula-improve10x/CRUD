@@ -6,19 +6,22 @@ import android.widget.EditText;
 
 import com.improve10x.crud.R;
 import com.improve10x.crud.base.BaseActivity;
+import com.improve10x.crud.databinding.ActivityAddEditMessagesBinding;
 
 public class BaseAddEditMessagesActivity extends BaseActivity {
+
+    protected ActivityAddEditMessagesBinding binding;
 
     protected   EditText nameTxt;
     protected   EditText phoneNumberTxt;
     protected   EditText messageTextTxt;
-    // todo ; change the object name as message edit in declare
     protected   Message messageList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_edit_messages);
+        binding = ActivityAddEditMessagesBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         getSupportActionBar().setTitle("Messages");
         initValues();
     }
@@ -31,7 +34,6 @@ public class BaseAddEditMessagesActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // todo ; change the id as add_edit_message_menu
         getMenuInflater().inflate(R.menu.add_edit_messages_menu, menu);
         return true;
     }
