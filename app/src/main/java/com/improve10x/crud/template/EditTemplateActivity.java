@@ -27,13 +27,13 @@ public class EditTemplateActivity extends BaseAddEditTemplateActivity{
     }
 
     private void showData() {
-        messageTextTxt.setText(template.messageText);
+        binding.messageTextTxt.setText(template.messageText);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.save) {
-            String message = messageTextTxt.getText().toString();
+            String message = binding.messageTextTxt.getText().toString();
             updateTemplate(template.id, message);
             return true;
         } else {

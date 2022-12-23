@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.improve10x.crud.databinding.DashboardItemBinding;
 import com.improve10x.crud.movies.MoviesActivity;
 import com.improve10x.crud.series.SeriesItemsActivity;
 import com.improve10x.crud.template.TemplatesActivity;
@@ -29,27 +30,27 @@ public class DashboardItemsAdapter extends RecyclerView.Adapter<DashboardItemVie
     @NonNull
     @Override
     public DashboardItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.dashboard_item, parent, false);
-        DashboardItemViewHolder dashboardViewHolder = new DashboardItemViewHolder(view);
+        DashboardItemBinding binding = DashboardItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        DashboardItemViewHolder dashboardViewHolder = new DashboardItemViewHolder(binding);
         return dashboardViewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull DashboardItemViewHolder holder, int position) {
         DashboardItem dashboard = dashboardItems.get(position);
-        Picasso.get().load(dashboard.imageUrl).into(holder.dashboardItemImg);
-        holder.titleTxt.setText(dashboard.title);
+        Picasso.get().load(dashboard.imageUrl).into(holder.binding.dashboardItemImg);
+        holder.binding.titleTextTxt.setText(dashboard.title);
         holder.itemView.setOnClickListener(view -> {
-             if(holder.titleTxt.getText().toString().equalsIgnoreCase("Messages")) {
+             if(holder.binding.titleTextTxt.getText().toString().equalsIgnoreCase("Messages")) {
                  Intent intent = new Intent(holder.itemView.getContext(), MessagesActivity.class );
                  holder.itemView.getContext().startActivity(intent);
-             } else if (holder.titleTxt.getText().toString().equalsIgnoreCase("Templates")) {
+             } else if (holder.binding.titleTextTxt.getText().toString().equalsIgnoreCase("Templates")) {
                  Intent intent = new Intent(holder.itemView.getContext(), TemplatesActivity.class);
                  holder.itemView.getContext().startActivity(intent);
-             } else if(holder.titleTxt.getText().toString().equalsIgnoreCase("Series")) {
+             } else if(holder.binding.titleTextTxt.getText().toString().equalsIgnoreCase("Series")) {
                  Intent intent = new Intent(holder.itemView.getContext(), SeriesItemsActivity.class);
                  holder.itemView.getContext().startActivity(intent);
-             } else if (holder.titleTxt.getText().toString().equalsIgnoreCase("Movies")) {
+             } else if (holder.binding.titleTextTxt.getText().toString().equalsIgnoreCase("Movies")) {
                  Intent intent = new Intent(holder.itemView.getContext(), MoviesActivity.class );
                  holder.itemView.getContext().startActivity(intent);
              }

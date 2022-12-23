@@ -7,19 +7,21 @@ import android.os.Bundle;
 
 import com.improve10x.crud.R;
 import com.improve10x.crud.base.BaseActivity;
+import com.improve10x.crud.databinding.ActivityDashboardBinding;
 
 import java.util.ArrayList;
 
 public class DashboardItemsActivity extends BaseActivity {
 
+    private ActivityDashboardBinding binding;
     private ArrayList<DashboardItem> dashboardItems;
-    private RecyclerView dashboardItemsRv;
     private DashboardItemsAdapter dashboardAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        binding = ActivityDashboardBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         log("onCreate");
         getSupportActionBar().setTitle("Dashboard");
         setupData();
@@ -27,11 +29,10 @@ public class DashboardItemsActivity extends BaseActivity {
     }
 
     private void setupDashboardItemsRv() {
-        dashboardItemsRv = findViewById(R.id.dashboard_rv);
-        dashboardItemsRv.setLayoutManager(new LinearLayoutManager(this));
+        binding.dashboardItemRv.setLayoutManager(new LinearLayoutManager(this));
         dashboardAdapter = new DashboardItemsAdapter();
         dashboardAdapter.setData(dashboardItems);
-        dashboardItemsRv.setAdapter(dashboardAdapter);
+        binding.dashboardItemRv.setAdapter(dashboardAdapter);
     }
 
     private void setupData() {
