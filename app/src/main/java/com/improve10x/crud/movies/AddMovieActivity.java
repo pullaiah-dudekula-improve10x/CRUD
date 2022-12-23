@@ -24,13 +24,12 @@ public class AddMovieActivity extends BaseAddEditMovieActivity{
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.save) {
-            Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
-            String movieId = movieIdTxt.getText().toString();
-            SeriesItem series = (SeriesItem) seriesSp.getSelectedItem();
+            String movieId = binding.movieIdTxt.getText().toString();
+            SeriesItem series = (SeriesItem) binding.seriesSp.getSelectedItem();
             String seriesId = series.seriesId;
-            String imageUrl = movieImageUrlTxt.getText().toString();
-            String movieName = movieNameTxt.getText().toString();
-            String description = movieDescriptionTxt.getText().toString();
+            String imageUrl = binding.movieImageurlTxt.getText().toString();
+            String movieName = binding.movieNameTxt.getText().toString();
+            String description = binding.descriptionTxt.getText().toString();
             addMovies(movieId, seriesId, imageUrl, movieName, description);
             return  true;
         } else {

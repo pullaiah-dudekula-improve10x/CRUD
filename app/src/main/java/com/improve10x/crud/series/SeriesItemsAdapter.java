@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.improve10x.crud.R;
+import com.improve10x.crud.databinding.SeriesItemBinding;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -29,17 +30,17 @@ public class SeriesItemsAdapter extends RecyclerView.Adapter<SeriesViewHolder> {
     @NonNull
     @Override
     public SeriesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.series_item, parent, false);
-        SeriesViewHolder seriesViewHolder = new SeriesViewHolder(view);
+        SeriesItemBinding binding = SeriesItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        SeriesViewHolder seriesViewHolder = new SeriesViewHolder(binding);
         return seriesViewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull SeriesViewHolder holder, int position) {
         SeriesItem seriesItem = seriesItems.get(position);
-        Picasso.get().load(seriesItem.imageUrl).into(holder.seriesItemImg);
-        holder.titleTxt.setText(seriesItem.title);
-        holder.seriesDeleteBtn.setOnClickListener(view -> {
+        Picasso.get().load(seriesItem.imageUrl).into(holder.binding.seriesItemImg);
+        holder.binding.titleTextTxt.setText(seriesItem.title);
+        holder.binding.seriesDeleteBtn.setOnClickListener(view -> {
             onItemActionClickListener.onDelete(seriesItem.id);
         });
         holder.itemView.setOnClickListener(view -> {

@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.improve10x.crud.R;
+import com.improve10x.crud.databinding.MoviesItemBinding;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesViewHolder> {
 
     private List<Movie> movie;
     private OnItemActionClickListener onItemActionClickListener;
-// todo ; declare modifier as default
+
      public void setData(List<Movie> movieList) {
         movie = movieList;
         notifyDataSetChanged();
@@ -29,17 +30,17 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesViewHolder> {
     @NonNull
     @Override
     public MoviesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.movies_item, parent, false);
-        MoviesViewHolder moviesViewHolder = new MoviesViewHolder(view);
+        MoviesItemBinding binding = MoviesItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        MoviesViewHolder moviesViewHolder = new MoviesViewHolder(binding);
         return moviesViewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull MoviesViewHolder holder, int position) {
         Movie movie = this.movie.get(position);
-        Picasso.get().load(movie.imageUrl).into(holder.movieImg);
-        holder.moviesTextTxt.setText(movie.movieName);
-        holder.deleteBtn.setOnClickListener(view -> {
+        Picasso.get().load(movie.imageUrl).into(holder.binding.movieImg);
+        holder.binding.titleTextTxt.setText(movie.movieName);
+        holder.binding.deleteBtn.setOnClickListener(view -> {
             onItemActionClickListener.onDelete(movie.id);
         });
         holder.itemView.setOnClickListener(view -> {

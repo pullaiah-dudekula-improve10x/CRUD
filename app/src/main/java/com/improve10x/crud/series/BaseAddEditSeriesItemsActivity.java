@@ -6,23 +6,17 @@ import android.widget.EditText;
 
 import com.improve10x.crud.R;
 import com.improve10x.crud.base.BaseActivity;
+import com.improve10x.crud.databinding.ActivityAddEditSeriesBinding;
+
 public class BaseAddEditSeriesItemsActivity extends BaseActivity {
 
-    protected EditText seriesIdTxt;
-    protected EditText seriesNameTxt;
-    protected EditText imageUrlTxt;
+    protected ActivityAddEditSeriesBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_edit_series);
-        initViews();
-    }
-
-    private void initViews() {
-        seriesIdTxt = findViewById(R.id.seriesid_txt);
-        seriesNameTxt = findViewById(R.id.seriesname_txt);
-        imageUrlTxt = findViewById(R.id.imageurl_txt);
+        binding = ActivityAddEditSeriesBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
     }
 
     @Override

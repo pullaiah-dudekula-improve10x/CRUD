@@ -9,17 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.improve10x.crud.R;
+import com.improve10x.crud.databinding.SeriesItemBinding;
 
 public class SeriesViewHolder extends RecyclerView.ViewHolder {
 
-     ImageView seriesItemImg;
-     TextView titleTxt;
-     ImageButton seriesDeleteBtn;
+    SeriesItemBinding binding;
 
-    public SeriesViewHolder(@NonNull View itemView) {
-        super(itemView);
-        seriesItemImg = itemView.findViewById(R.id.series_item_img);
-        titleTxt = itemView.findViewById(R.id.title_text_txt);
-        seriesDeleteBtn = itemView.findViewById(R.id.series_delete_btn);
+    public SeriesViewHolder(SeriesItemBinding seriesItemBinding) {
+        super(seriesItemBinding.getRoot());
+        binding = seriesItemBinding;
+
     }
 }
