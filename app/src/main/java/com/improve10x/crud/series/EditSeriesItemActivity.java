@@ -22,14 +22,15 @@ public class EditSeriesItemActivity extends BaseAddEditSeriesItemsActivity {
         if (getIntent().hasExtra(Constants.KEY_SERIES)) {
             getSupportActionBar().setTitle("Edit Series");
             seriesItem = (SeriesItem) getIntent().getSerializableExtra(Constants.KEY_SERIES);
-            showMessage();
+            showData();
         }
     }
 
-    private void showMessage() {
-        binding.seriesidTxt.setText(seriesItem.seriesId);
-        binding.seriesnameTxt.setText(seriesItem.title);
-        binding.imageurlTxt.setText(seriesItem.imageUrl);
+    private void showData() {
+        binding.setSeriesItem(seriesItem);
+        //binding.seriesidTxt.setText(seriesItem.seriesId);
+        //binding.seriesnameTxt.setText(seriesItem.title);
+        //binding.imageurlTxt.setText(seriesItem.imageUrl);
     }
 
     @Override

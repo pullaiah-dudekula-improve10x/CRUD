@@ -38,8 +38,9 @@ public class SeriesItemsAdapter extends RecyclerView.Adapter<SeriesViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull SeriesViewHolder holder, int position) {
         SeriesItem seriesItem = seriesItems.get(position);
-        Picasso.get().load(seriesItem.imageUrl).into(holder.binding.seriesItemImg);
-        holder.binding.titleTextTxt.setText(seriesItem.title);
+        holder.binding.setSeriesItem(seriesItem);
+        //Picasso.get().load(seriesItem.imageUrl).into(holder.binding.seriesItemImg);
+        //holder.binding.titleTextTxt.setText(seriesItem.title);
         holder.binding.seriesDeleteBtn.setOnClickListener(view -> {
             onItemActionClickListener.onDelete(seriesItem.id);
         });

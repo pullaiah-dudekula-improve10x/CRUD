@@ -25,9 +25,7 @@ public class EditMessageActivity extends BaseAddEditMessagesActivity{
     }
 
     private void showData() {
-        binding.nameTxt.setText(messageList.name);
-        binding.phoneNumberTxt.setText(messageList.phoneNumber);
-        binding.messageTextTxt.setText(messageList.messageText);
+        binding.setMessage(messageList);
     }
 
     @Override

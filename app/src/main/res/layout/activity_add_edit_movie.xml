@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="movie"
+            type="com.improve10x.crud.movies.Movie" />
+    </data>
+
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -13,8 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="12dp"
-        android:text="Movie Id"
-        android:textColor="#1E1B1B"
+        android:text="@string/movie_id"
+        android:textColor="@color/black"
         android:textSize="20sp" />
 
     <EditText
@@ -23,15 +31,16 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:paddingTop="8dp" />
+        android:paddingTop="8dp"
+        android:text="@{movie.movieId}"/>
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
-        android:text="Movie Name"
-        android:textColor="#1E1B1B"
+        android:text="@string/movie_name"
+        android:textColor="@color/black"
         android:textSize="20sp" />
 
     <EditText
@@ -40,15 +49,16 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:paddingTop="8dp" />
+        android:paddingTop="8dp"
+        android:text="@{movie.movieName}"/>
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
-        android:text="Series"
-        android:textColor="#1E1B1B"
+        android:text="@string/series"
+        android:textColor="@color/black"
         android:textSize="20sp" />
 
     <Spinner
@@ -62,8 +72,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
-        android:text="Image Url"
-        android:textColor="#1E1B1B"
+        android:text="@string/image_url"
+        android:textColor="@color/black"
         android:textSize="20sp" />
 
     <EditText
@@ -72,15 +82,16 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:paddingTop="8dp" />
+        android:paddingTop="8dp"
+        android:text="@{movie.imageUrl}"/>
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
-        android:text="Description"
-        android:textColor="#1E1B1B"
+        android:text="@string/description"
+        android:textColor="@color/black"
         android:textSize="20sp" />
 
     <EditText
@@ -89,6 +100,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:paddingTop="8dp" />
+        android:paddingTop="8dp"
+        android:text="@{movie.description}"/>
 
 </LinearLayout>
+</layout>

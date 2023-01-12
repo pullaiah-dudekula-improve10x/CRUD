@@ -31,7 +31,7 @@ public class EditMovieActivity extends BaseAddEditMovieActivity{
         if (item.getItemId() == R.id.save) {
             Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
             String movieId = binding.movieIdTxt.getText().toString();
-            SeriesItem series = (SeriesItem) seriesSp.getSelectedItem();
+            SeriesItem series = (SeriesItem) binding.seriesSp.getSelectedItem();
             String seriesId = series.seriesId;
             String imageUrl = binding.movieImageurlTxt.getText().toString();
             String movieName = binding.movieNameTxt.getText().toString();

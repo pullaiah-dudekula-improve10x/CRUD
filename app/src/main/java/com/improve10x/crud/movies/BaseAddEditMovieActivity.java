@@ -73,7 +73,7 @@ public class BaseAddEditMovieActivity extends BaseActivity {
         for (int i = 0; i<customSeriesAdapter.getCount(); i++) {
             series = customSeriesAdapter.getItem(i);
             if(movie.seriesId.equals(series.seriesId)) {
-                seriesSp.setSelection(i);
+                binding.seriesSp.setSelection(i);
             }
         }
     }
